@@ -1,0 +1,30 @@
+{
+  "name": "myspacefurniture-nextjs",
+  "version": "1.0.0",
+  "description": "My Space Furniture - Next.js Web Application",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "source-map-js": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.21",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.16",
+    "css-loader": "^7.1.2",
+    "postcss": "^8.4.31",
+    "postcss-loader": "^8.2.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.3.0"
+  }
+}

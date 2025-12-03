@@ -1,0 +1,25 @@
+# My Space Furniture - Robots.txt
+User-agent: *
+Allow: /
+Disallow: /.next/
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://myspacefurniture.com/sitemap.xml
+
+# Crawl Delay
+Crawl-delay: 1
+
+# User agents
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 1
