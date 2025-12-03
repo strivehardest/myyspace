@@ -25,12 +25,12 @@ export default function Financing() {
         heroImage="/images/heroes/financing-hero.webp"
       />
 
-      <main className="py-16 md:py-24">
+      <main className="py-16 md:py-24 bg-[#b8845c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Intro Section */}
           <section className="text-center mb-16">
-            <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue">Flexible Payment Options</h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-playfair font-bold mb-6 text-[#ebebeb] uppercase">Flexible Payment Options</h2>
+            <p className="text-lg text-[#ebebeb] max-w-3xl mx-auto">
               At My Space Furniture, we offer various flexible payment options. Choose the best option for your needs and make your furniture purchase affordable today!
             </p>
           </section>

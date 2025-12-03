@@ -25,10 +25,10 @@ export default function PageHeader({ title, subtitle, heroImage, compact = false
           priority
         />
       )}
-      <div className={`absolute inset-0 ${heroImage ? 'bg-black/40' : 'bg-gradient-to-r from-primary-blue to-secondary-blue'}`} />
+      <div className={`absolute inset-0 ${heroImage ? 'bg-black/40' : 'bg-[#a0725a]'}`} />
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white w-full">
-          <h1 className={`${titleClass} font-playfair font-bold mb-2`}>{title}</h1>
+          <h1 className={`${titleClass} font-playfair font-bold mb-2 uppercase`}>{title}</h1>
           {subtitle && <p className={`${subtitleClass} text-blue-100`}>{subtitle}</p>}
         </div>
       </div>

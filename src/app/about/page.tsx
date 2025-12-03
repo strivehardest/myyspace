@@ -24,10 +24,10 @@ export default function About() {
         heroImage="/images/heroes/about-hero.jpg"
       />
 
-      <main className="py-16 md:py-24">
+      <main className="py-16 md:py-24 bg-[#b8845c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <section className="mb-16">
-            <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue">About My Space Furniture</h2>
+            <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue uppercase">About My Space Furniture</h2>
             <p className="text-lg text-gray-700 mb-4">
               My Space Furniture provides premium mattress and furniture sales to Roseville, Sacramento, Davis, Chico, and Yuba City, CA. Since 2016, we have been committed to offering quality furniture and exceptional customer service to our valued customers throughout Northern California.
             </p>
@@ -37,7 +37,7 @@ export default function About() {
           </section>
 
           <section className="mb-16">
-            <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue">What We Offer</h2>
+            <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue uppercase">What We Offer</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div>
                 <h3 className="text-xl font-playfair font-bold text-primary-blue mb-4">Services</h3>
@@ -113,7 +113,7 @@ export default function About() {
           </section>
 
           <section className="mb-16">
-            <h2 className="text-3xl font-playfair font-bold mb-12 text-primary-blue">Why Choose My Space Furniture?</h2>
+            <h2 className="text-3xl font-playfair font-bold mb-12 text-primary-blue uppercase">Why Choose My Space Furniture?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
@@ -155,7 +155,7 @@ export default function About() {
           </section>
 
           <section className="mb-16 bg-light-gray rounded-lg p-8">
-            <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue">Business Hours & Contact</h2>
+            <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue uppercase">Business Hours & Contact</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-playfair font-bold text-primary-blue mb-4">Hours of Operation</h3>
@@ -180,7 +180,7 @@ export default function About() {
           </section>
 
           <section className="bg-primary-blue text-white rounded-lg p-8">
-            <h2 className="text-2xl font-playfair font-bold mb-4">Visit Our Showroom</h2>
+            <h2 className="text-2xl font-playfair font-bold mb-4 uppercase">Visit Our Showroom</h2>
             <p className="text-lg mb-4">
               Located in beautiful Roseville, CA, our showroom showcases our complete collection of mattresses, furniture, and custom pieces.
             </p>

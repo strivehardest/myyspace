@@ -30,7 +30,7 @@ export function QuickLinks({ links }: { links: QuickLink[] }) {
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center space-x-3 p-4 rounded-lg border-2 border-orange-300 hover:bg-orange-50 transition group overflow-hidden"
+          className="flex items-center space-x-3 p-4 rounded-lg bg-[#b8845c] hover:bg-[#a0725a] transition group overflow-hidden"
         >
           {link.isImage && link.imageUrl ? (
             <img
@@ -40,13 +40,13 @@ export function QuickLinks({ links }: { links: QuickLink[] }) {
               onError={handleImageError}
             />
           ) : (
-            <svg className="w-6 h-6 text-orange-600 group-hover:scale-110 transition flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-white group-hover:scale-110 transition flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           )}
           <div className="min-w-0 flex-1">
-            <p className="text-xs text-gray-600">{link.label}</p>
-            <p className="font-semibold text-orange-600 text-sm truncate">{link.name}</p>
+            <p className="text-xs text-white">{link.label}</p>
+            <p className="font-semibold text-white text-sm truncate">{link.name}</p>
           </div>
         </a>
       ))}

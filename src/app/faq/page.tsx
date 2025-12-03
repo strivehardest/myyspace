@@ -77,11 +77,11 @@ export default function FAQ() {
         heroImage="/images/heroes/faq-hero.webp"
       />
 
-      <main className="py-16 md:py-24">
+      <main className="py-16 md:py-24 bg-[#b8845c]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {faqCategories.map((category, catIndex) => (
             <section key={catIndex} className="mb-12">
-              <h2 className="text-2xl font-playfair font-bold text-primary-blue mb-6">{category.title}</h2>
+              <h2 className="text-2xl font-playfair font-bold text-primary-blue mb-6 uppercase">{category.title}</h2>
               <div className="space-y-3">
                 {category.items.map((item, itemIndex) => {
                   const itemId = `faq-${catIndex}-${itemIndex}`
@@ -114,7 +114,7 @@ export default function FAQ() {
 
           {/* Contact Section */}
           <section className="mt-16 bg-light-gray rounded-lg p-12 text-center">
-            <h2 className="text-3xl font-playfair font-bold text-primary-blue mb-4">
+            <h2 className="text-3xl font-playfair font-bold text-primary-blue mb-4 uppercase">
               Still Have Questions?
             </h2>
             <p className="text-lg text-gray-700 mb-8">

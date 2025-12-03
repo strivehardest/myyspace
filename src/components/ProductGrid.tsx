@@ -40,14 +40,14 @@ export default function ProductGrid({
 
   return (
     <>
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-[#b8845c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold text-primary-blue mb-4">
+            <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#ebebeb] mb-4 uppercase">
               {title}
             </h2>
             {description && (
-              <p className="text-lg text-gray-700 max-w-2xl mx-auto">{description}</p>
+              <p className="text-lg text-[#ebebeb] max-w-2xl mx-auto">{description}</p>
             )}
           </div>
 

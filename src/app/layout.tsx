@@ -73,7 +73,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-white text-dark-gray">
+      <body className="bg-[#b8845c] text-[#ebebeb] font-playfair">
         <GoogleAnalytics />
         {children}
         <WhatsAppChat />
