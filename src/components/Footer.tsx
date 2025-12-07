@@ -69,7 +69,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="/vanities" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Vanities</Link></li>
               <li><Link href="/bunk-beds" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Bunk Beds</Link></li>
-              <li><Link href="/loveseats" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Sofa Loveseats</Link></li>
+              <li><Link href="/loveseats" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Sofa & Loveseats</Link></li>
               <li><Link href="/leather-sectionals" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Leather Sectionals</Link></li>
               <li><Link href="/fabric-sectionals" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Fabric Sectionals</Link></li>
               <li><Link href="/bedroom-sets" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Bedroom Sets</Link></li>

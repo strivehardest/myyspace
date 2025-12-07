@@ -127,6 +127,52 @@ export default function Financing() {
             ))}
           </section>
 
+          {/* Financing Information Section */}
+          <section className="mb-16 bg-white/10 rounded-lg p-8 md:p-12 backdrop-blur">
+            <h2 className="text-3xl font-playfair font-bold mb-8 text-[#ebebeb] uppercase">Why Choose Our Financing Options?</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-playfair font-bold text-[#ebebeb] mb-4">Affordable Payment Plans</h3>
+                <p className="text-[#ebebeb] mb-4 leading-relaxed">
+                  We understand that premium furniture is an investment. That's why we partner with trusted financing companies to offer flexible payment plans that fit your budget. Whether you need short-term financing or extended payment terms, we have options that work for you.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-playfair font-bold text-[#ebebeb] mb-4">Quick Approval Process</h3>
+                <p className="text-[#ebebeb] mb-4 leading-relaxed">
+                  Our financing partners use advanced technology to provide quick approvals—often in minutes. With minimal documentation and simple application processes, you can get approved and start enjoying your new furniture right away.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-playfair font-bold text-[#ebebeb] mb-4">Flexible Terms & No Hidden Fees</h3>
+                <p className="text-[#ebebeb] mb-4 leading-relaxed">
+                  Choose payment terms that work best for your situation. Our financing options come with transparent pricing—no hidden fees or surprise charges. You'll know exactly what you're paying before you apply.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-playfair font-bold text-[#ebebeb] mb-4">Special Promotional Offers</h3>
+                <p className="text-[#ebebeb] mb-4 leading-relaxed">
+                  Take advantage of special promotional financing offers including interest-free periods and extended payment terms. These limited-time offers make premium furniture more accessible than ever before.
+                </p>
+              </div>
+            </div>
+            
+            <div className="mt-8 p-6 bg-[#b8845c] border-l-4 border-white rounded">
+              <h4 className="text-lg font-playfair font-bold text-[#ebebeb] mb-3">How It Works</h4>
+              <ol className="text-[#ebebeb] space-y-2 ml-4">
+                <li className="list-decimal"><span className="font-semibold">Browse our collection</span> and select your favorite furniture pieces</li>
+                <li className="list-decimal"><span className="font-semibold">Choose your financing option</span> based on your preferences and budget</li>
+                <li className="list-decimal"><span className="font-semibold">Complete the quick application</span> with our financing partners</li>
+                <li className="list-decimal"><span className="font-semibold">Get instant or quick approval</span> and start shopping</li>
+                <li className="list-decimal"><span className="font-semibold">Make affordable monthly payments</span> at your own pace</li>
+              </ol>
+            </div>
+          </section>
+
           {/* Contact Section */}
           <section className="text-center bg-gradient-to-r from-primary-blue to-secondary-blue text-white rounded-lg p-12 mb-16 relative overflow-hidden">
             {/* Background Image */}

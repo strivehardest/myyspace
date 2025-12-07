@@ -43,7 +43,7 @@ export default function Header() {
         {/* Navigation Bar - Below Logo */}
         <nav className="hidden lg:flex items-center justify-center space-x-8 py-4 border-t border-gray-100">
           <Link href="/loveseats" className="text-[#ebebeb] font-semibold hover:text-white transition text-sm uppercase tracking-wide font-playfair">
-            Sofas
+            Sofas & Loveseats
           </Link>
           <Link href="/bedroom-sets" className="text-[#ebebeb] font-semibold hover:text-white transition text-sm uppercase tracking-wide font-playfair">
             Bedroom

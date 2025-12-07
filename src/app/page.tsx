@@ -55,7 +55,7 @@ export default function Home() {
           <div className="w-full px-0">
             <div className="grid grid-cols-1 gap-0">
               {[
-                { href: '/loveseats', title: 'Loveseats', image: '/products/sofa.webp' },
+                { href: '/loveseats', title: 'Sofa & Loveseats', image: '/products/sofa.webp' },
                 { href: '/bedroom-sets', title: 'Bedroom Sets', image: '/products/bedroom.webp' },
                 { href: '/dining-tables', title: 'Dining', image: '/products/dining-table-2.webp' },
                 { href: '/mattresses', title: 'Mattresses', image: '/products/mattresses.webp' },
