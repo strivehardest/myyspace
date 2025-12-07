@@ -103,7 +103,7 @@ export default function Header() {
         <div className="lg:hidden border-t bg-white">
           <div className="px-4 py-4 space-y-3">
             <Link href="/loveseats" className="block text-[#b8845c] font-semibold hover:text-[#a0725a] font-playfair uppercase">
-              Sofas
+              Sofas & Loveseats
             </Link>
             <Link href="/bedroom-sets" className="block text-[#b8845c] font-semibold hover:text-[#a0725a] font-playfair uppercase">
               Bedroom

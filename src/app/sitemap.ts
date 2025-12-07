@@ -1,112 +1,133 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://myspacefurniture.com'
+  const baseUrl = 'https://myyspacefurniture.com'
+  const today = new Date('2025-12-07')
 
   const routes = [
+    // Main Pages
     {
       url: baseUrl,
-      lastModified: new Date('2025-11-29'),
+      lastModified: today,
       changeFrequency: 'weekly' as const,
       priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date('2025-11-29'),
+      lastModified: today,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date('2025-11-29'),
+      lastModified: today,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/faq`,
-      lastModified: new Date('2025-11-29'),
+      lastModified: today,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/financing`,
-      lastModified: new Date('2025-11-29'),
+      lastModified: today,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/gallery`,
+      lastModified: today,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/credits`,
-      lastModified: new Date('2025-11-29'),
-      changeFrequency: 'monthly' as const,
+      lastModified: today,
+      changeFrequency: 'yearly' as const,
       priority: 0.7,
     },
-    // Furniture Categories
+    // Main Furniture Categories
     {
       url: `${baseUrl}/mattresses`,
-      lastModified: new Date('2025-11-29'),
+      lastModified: today,
       changeFrequency: 'weekly' as const,
-      priority: 0.9,
+      priority: 0.95,
     },
     {
-      url: `${baseUrl}/sofas`,
-      lastModified: new Date('2025-11-29'),
+      url: `${baseUrl}/loveseats`,
+      lastModified: today,
       changeFrequency: 'weekly' as const,
-      priority: 0.9,
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/sectionals`,
-      lastModified: new Date('2025-11-29'),
+      lastModified: today,
       changeFrequency: 'weekly' as const,
-      priority: 0.9,
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/bedroom-sets`,
-      lastModified: new Date('2025-11-29'),
+      lastModified: today,
+      changeFrequency: 'weekly' as const,
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/bunk-beds`,
+      lastModified: today,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/dining-room`,
-      lastModified: new Date('2025-11-29'),
+      url: `${baseUrl}/dining-tables`,
+      lastModified: today,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/recliners`,
-      lastModified: new Date('2025-11-29'),
+      url: `${baseUrl}/vanities`,
+      lastModified: today,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
+    },
+    // Sectional Variations
+    {
+      url: `${baseUrl}/fabric-sectionals`,
+      lastModified: today,
+      changeFrequency: 'weekly' as const,
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/leather-sectionals`,
+      lastModified: today,
+      changeFrequency: 'weekly' as const,
+      priority: 0.88,
     },
     // Custom Furniture Categories
     {
+      url: `${baseUrl}/custom-furniture`,
+      lastModified: today,
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/custom-sofas`,
-      lastModified: new Date('2025-11-29'),
+      lastModified: today,
       changeFrequency: 'weekly' as const,
       priority: 0.85,
     },
     {
       url: `${baseUrl}/custom-sectionals`,
-      lastModified: new Date('2025-11-29'),
+      lastModified: today,
       changeFrequency: 'weekly' as const,
       priority: 0.85,
     },
     {
       url: `${baseUrl}/custom-bedroom-sets`,
-      lastModified: new Date('2025-11-29'),
+      lastModified: today,
       changeFrequency: 'weekly' as const,
       priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/custom-furniture`,
-      lastModified: new Date('2025-11-29'),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/custom-loveseats`,
-      lastModified: new Date('2025-11-29'),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
     },
   ]
 

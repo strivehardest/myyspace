@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://myspacefurniture.com',
+    url: 'https://myyspacefurniture.com',
     siteName: 'My Space Furniture',
     title: 'My Space Furniture - Quality Furniture for Every Room',
     description: 'Transform your space with premium furniture including mattresses, sofas, sectionals, and custom options.',
@@ -44,17 +44,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://myspacefurniture.com" />
+        <link rel="canonical" href="https://myyspacefurniture.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
         <meta name="theme-color" content="#1E3A8A" />
         <meta name="robots" content="index, follow" />
-        <script
-          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
-          async
-          defer
-        ></script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -62,14 +57,26 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'My Space Furniture',
-              url: 'https://myspacefurniture.com',
-              logo: 'https://myspacefurniture.com/logo.png',
+              url: 'https://myyspacefurniture.com',
+              logo: 'https://myyspacefurniture.com/logo.png',
               description: 'Premium furniture retailer offering mattresses, sofas, sectionals, bedroom sets, and custom furniture solutions.',
               address: {
                 '@type': 'PostalAddress',
                 addressCountry: 'US',
               },
             }),
+          }}
+        />
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2HX9RZGL6V"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2HX9RZGL6V');
+            `,
           }}
         />
       </head>

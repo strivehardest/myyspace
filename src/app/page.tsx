@@ -6,7 +6,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'My Space Furniture - Premium Furniture Store | Mattresses, Sofas & More',
   description: 'Discover premium furniture at My Space Furniture. Shop mattresses, sofas, sectionals, bedroom sets, dining room furniture, and custom options with expert service.',
-  keywords: 'furniture store, mattresses, sofas, sectionals, bedroom sets, dining furniture, custom furniture near me',
+  keywords: 'furniture store, mattresses, sofas, sectionals, bedroom sets, dining furniture, custom furniture, furniture near me, quality furniture, affordable furniture, modern furniture, contemporary furniture, luxury furniture, home furnishings, seating furniture, bedroom furniture, dining room, living room furniture, bedroom decor, USA furniture store, online furniture, furniture shopping',
   openGraph: {
     title: 'My Space Furniture - Your Home Deserves Better',
     description: 'Premium furniture solutions for every room in your home',

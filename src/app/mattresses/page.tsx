@@ -7,7 +7,7 @@ import ProductGrid from '@/components/ProductGrid'
 export const metadata: Metadata = {
   title: 'Quality Mattresses | Best Sleep Solutions - My Space Furniture',
   description: 'Discover premium mattresses at My Space Furniture. Quality brands, various firmness levels, and financing available. Sleep better tonight.',
-  keywords: 'mattresses, beds, sleep, quality mattresses, memory foam, innerspring',
+  keywords: 'mattresses, beds, sleep, quality mattresses, memory foam, innerspring, mattress store, best mattresses, affordable mattresses, luxury mattresses, queen mattress, king mattress, twin mattress, mattress brands, comfortable mattress, orthopedic mattress',
   openGraph: {
     title: 'Premium Mattresses - My Space Furniture',
     description: 'Find your perfect mattress for better sleep',

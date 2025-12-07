@@ -13,61 +13,60 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <main className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+      <main className="min-h-screen flex items-center justify-center bg-[#b8845c] py-20 px-4">
+        <div className="max-w-2xl mx-auto text-center">
           {/* 404 Illustration */}
           <div className="mb-8">
-            <div className="inline-block">
-              <div className="text-9xl font-playfair font-bold bg-gradient-to-r from-primary-blue to-secondary-blue bg-clip-text text-transparent mb-4">
-                404
-              </div>
-            </div>
+            <h1 className="text-9xl md:text-[150px] font-playfair font-bold text-[#ebebeb] mb-4">
+              404
+            </h1>
+            <div className="h-1 w-32 bg-white mx-auto"></div>
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl md:text-5xl font-playfair font-bold text-dark-gray mb-4">
+          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-[#ebebeb] mb-4 uppercase">
             Page Not Found
-          </h1>
+          </h2>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-gray-600 mb-8">
-            Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
+          <p className="text-lg md:text-xl text-[#ebebeb] mb-8">
+            Sorry, the page you're looking for doesn't exist. It might have been moved or deleted.
           </p>
 
           {/* Description */}
-          <p className="text-gray-500 mb-12 max-w-md mx-auto">
-            Don't worry, we have plenty of amazing furniture options waiting for you. Let's get you back on track.
+          <p className="text-[#ebebeb] mb-12 max-w-md mx-auto opacity-90">
+            Let's get you back to exploring our premium furniture collection.
           </p>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link
               href="/"
-              className="px-8 py-4 bg-gradient-to-r from-primary-blue to-secondary-blue text-white font-semibold rounded-lg hover:shadow-lg transition-all"
+              className="px-8 py-4 bg-white text-[#b8845c] font-bold text-lg rounded-lg hover:bg-[#ebebeb] transition shadow-lg"
             >
-              Back to Home
+              Go to Homepage
             </Link>
             <Link
-              href="/sofas"
-              className="px-8 py-4 border-2 border-primary-blue text-primary-blue font-semibold rounded-lg hover:bg-primary-blue hover:text-white transition-all"
+              href="/contact"
+              className="px-8 py-4 border-2 border-white text-white font-bold text-lg rounded-lg hover:bg-white hover:text-[#b8845c] transition"
             >
-              Browse Sofas
+              Contact Us
             </Link>
           </div>
 
           {/* Suggested Links */}
-          <div className="mt-16 pt-8 border-t border-gray-200">
-            <h2 className="text-xl font-playfair font-bold text-dark-gray mb-6">
+          <div className="mt-16 pt-8 border-t border-white border-opacity-30">
+            <h3 className="text-xl font-playfair font-bold text-[#ebebeb] mb-6 uppercase">
               Popular Categories
-            </h2>
+            </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {[
                 { href: '/mattresses', label: 'Mattresses' },
-                { href: '/sofas', label: 'Sofas' },
+                { href: '/loveseats', label: 'Sofas & Loveseats' },
                 { href: '/sectionals', label: 'Sectionals' },
                 { href: '/bedroom-sets', label: 'Bedroom Sets' },
-                { href: '/dining-tables', label: 'Dining Tables' },
-                { href: '/vanities', label: 'Vanities' },
+                { href: '/dining-room', label: 'Dining Furniture' },
+                { href: '/recliners', label: 'Recliners' },
                 { href: '/custom-sofas', label: 'Custom Sofas' },
                 { href: '/custom-sectionals', label: 'Custom Sectionals' },
                 { href: '/contact', label: 'Contact Us' },
@@ -75,7 +74,7 @@ export default function NotFound() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-primary-blue hover:text-secondary-blue font-medium transition-colors"
+                  className="px-4 py-2 text-[#ebebeb] hover:text-white font-playfair transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -84,14 +83,14 @@ export default function NotFound() {
           </div>
 
           {/* Help Section */}
-          <div className="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
-            <h3 className="font-semibold text-primary-blue mb-2">Need Help?</h3>
-            <p className="text-gray-600 mb-4">
+          <div className="mt-12 p-6 bg-[#a0725a] rounded-lg border border-white border-opacity-20">
+            <h3 className="font-bold text-[#ebebeb] mb-2 text-lg font-playfair">Need Help?</h3>
+            <p className="text-[#ebebeb] mb-4 opacity-90">
               If you think this is a mistake, please contact our support team.
             </p>
             <Link
               href="/contact"
-              className="inline-block text-primary-blue hover:text-secondary-blue font-semibold transition-colors"
+              className="inline-block text-white hover:text-[#ebebeb] font-semibold transition-colors font-playfair"
             >
               Get in Touch →
             </Link>
