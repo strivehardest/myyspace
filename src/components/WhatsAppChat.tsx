@@ -28,7 +28,7 @@ export default function WhatsAppChat() {
 
   return (
     <a
-      href="https://wa.me/233530505031?text=Hello%21%20I%20am%20interested%20in%20learning%20more%20about%20your%20furniture%20products."
+      href="https://wa.me/+19166611073?text=Hello%21%20I%20am%20interested%20in%20learning%20more%20about%20your%20furniture%20products."
       target="_blank"
       rel="noopener noreferrer"
       className={`fixed bottom-6 right-6 z-[99] w-16 h-16 flex items-center justify-center transition-all duration-300 hover:scale-110 ${buttonColor} ${hoverColor}`}
