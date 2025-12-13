@@ -42,12 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/credits`,
-      lastModified: today,
-      changeFrequency: 'yearly' as const,
-      priority: 0.7,
-    },
+    
     // Main Furniture Categories
     {
       url: `${baseUrl}/mattresses`,
