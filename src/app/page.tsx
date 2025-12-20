@@ -38,9 +38,9 @@ export default function Home() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40" />
         
-        {/* Content */}
-        <div className="relative z-10 text-center text-white px-4 mt-20">
-          <h1 className="text-5xl md:text-6xl font-playfair font-bold mb-4 uppercase">
+        {/* Content - Pushed down below header */}
+        <div className="relative z-10 text-center text-white px-4 pt-64 md:pt-80 lg:pt-96">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold mb-4 uppercase">
             My Space Furniture
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-100">

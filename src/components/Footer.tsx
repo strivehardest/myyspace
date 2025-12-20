@@ -56,6 +56,7 @@ export default function Footer() {
               <li><Link href="/faq" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> FAQs</Link></li>
               <li><Link href="/financing" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Financing</Link></li>
               <li><Link href="/contact" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Contact</Link></li>
+              <li><Link href="/credits" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Credits</Link></li>
             </ul>
           </div>
 
