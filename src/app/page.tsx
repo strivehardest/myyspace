@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section with Background Video - Full Coverage */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative w-full min-h-[110vh] md:min-h-[130vh] flex items-center justify-center overflow-hidden">
         {/* Header Overlay */}
         <div className="absolute top-0 left-0 right-0 z-20">
           <Header />
@@ -32,17 +32,23 @@ export default function Home() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/hero1.mp4" type="video/mp4" />
         </video>
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40" />
-        
+
         {/* Content - Pushed down below header */}
         <div className="relative z-10 text-center text-white px-4 pt-64 md:pt-80 lg:pt-96">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold mb-4 uppercase">
             My Space Furniture
           </h1>
+          {/* Sale Banner Under Title */}
+          <div className="flex justify-center w-full mb-6">
+            <div className="bg-white/90 text-black text-lg md:text-xl font-bold font-playfair px-6 py-2 rounded shadow-lg border border-gray-200 max-w-xl text-center tracking-wide uppercase" style={{letterSpacing:'0.08em'}}>
+              Save up to <span className="text-[#b8845c]">50%</span> off your sale
+            </div>
+          </div>
           <p className="text-xl md:text-2xl mb-8 text-gray-100">
             Premium Furniture for Your Perfect Home
           </p>
@@ -63,9 +69,7 @@ export default function Home() {
                 { href: '/vanities', title: 'Vanities', image: '/products/vanity-33.webp' },
                 { href: '/leather-sectionals', title: 'Leather Sectionals', image: '/products/leather-sectional-9.webp' },
                 { href: '/fabric-sectionals', title: 'Fabric Sectionals', image: '/products/fabric-sectional-2.webp' },
-                { href: '/custom-sectionals', title: 'Custom Sectionals', image: '/products/custom.webp' },
-                { href: '/custom-sofas', title: 'Custom Sofas', image: '/products/custom.webp' },
-                { href: '/custom-bedroom-sets', title: 'Custom Bedroom', image: '/products/custom.webp' },
+                { href: '/custom-furniture', title: 'Custom Furniture', image: '/products/custom.webp' },
                 { href: '/gallery', title: 'Watch our Gallery', image: '/products/gallery/gallery-24.webp' },
               ].map((category) => (
                 <Link

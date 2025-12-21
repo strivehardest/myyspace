@@ -23,14 +23,19 @@ const LocationIcon = () => (
 
 export default function Footer() {
   return (
-    <footer className="bg-white">
+    <footer className="bg-white relative">
+      {/* Accent line */}
+      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#b8845c] to-transparent" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pt-20 pb-16">
-          {/* Brand Column */}
-          <div className="space-y-4">
+
+        {/* TOP SECTION */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 pt-24 pb-20">
+
+          {/* Brand */}
+          <div className="space-y-6">
             <Link href="/" className="inline-block">
-              <div className="w-64 h-24 relative">
+              <div className="w-64 h-36 relative">
                 <Image
                   src="/logo.png"
                   alt="My Space Furniture Logo"
@@ -39,111 +44,169 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-[#b8845c] text-sm leading-relaxed">
+
+            <p className="text-[#b8845c] text-lg leading-relaxed max-w-sm font-playfair">
               Quality furniture for every room in your home. Transform your space with our curated collection of premium pieces.
             </p>
           </div>
 
-          {/* Main Menu */}
+          {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-playfair font-bold mb-6 text-[#b8845c] flex items-center uppercase">
-              <div className="w-1 h-6 bg-[#b8845c] mr-3 rounded"></div>
+            <h4 className="text-lg font-playfair font-bold mb-8 text-[#b8845c] uppercase flex items-center">
+              <span className="w-1 h-6 bg-[#b8845c] rounded mr-3" />
               Quick Links
             </h4>
-            <ul className="space-y-3">
-              <li><Link href="/" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Home</Link></li>
-              <li><Link href="/about" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> About Us</Link></li>
-              <li><Link href="/faq" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> FAQs</Link></li>
-              <li><Link href="/financing" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Financing</Link></li>
-              <li><Link href="/contact" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Contact</Link></li>
+
+            <ul className="space-y-4 font-playfair">
+              <li><Link href="/" className="text-[#b8845c] hover:text-[#a0725a] transition">Home</Link></li>
+              <li><Link href="/about" className="text-[#b8845c] hover:text-[#a0725a] transition">About Us</Link></li>
+              <li><Link href="/gallery" className="text-[#b8845c] hover:text-[#a0725a] transition">Gallery</Link></li>
+              <li><Link href="/faq" className="text-[#b8845c] hover:text-[#a0725a] transition">FAQs</Link></li>
+              <li><Link href="/financing" className="text-[#b8845c] hover:text-[#a0725a] transition">Financing</Link></li>
+              <li><Link href="/contact" className="text-[#b8845c] hover:text-[#a0725a] transition">Contact</Link></li>
             </ul>
           </div>
 
-          {/* Furniture Categories */}
+          {/* Collections - Improved styling */}
           <div>
-            <h4 className="text-lg font-playfair font-bold mb-6 text-[#b8845c] flex items-center uppercase">
-              <div className="w-1 h-6 bg-[#b8845c] mr-3 rounded"></div>
-              Furniture
+            <h4 className="text-lg font-playfair font-bold mb-8 text-[#b8845c] uppercase flex items-center">
+              <span className="w-1 h-6 bg-[#b8845c] rounded mr-3" />
+              Our Collections
             </h4>
-            <ul className="space-y-3">
-              <li><Link href="/vanities" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Vanities</Link></li>
-              <li><Link href="/bunk-beds" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Bunk Beds</Link></li>
-              <li><Link href="/loveseats" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Sofa & Loveseats</Link></li>
-              <li><Link href="/leather-sectionals" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Leather Sectionals</Link></li>
-              <li><Link href="/fabric-sectionals" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Fabric Sectionals</Link></li>
-              <li><Link href="/bedroom-sets" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Bedroom Sets</Link></li>
-              <li><Link href="/dining-tables" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Dining Tables</Link></li>
-              <li><Link href="/gallery" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Gallery</Link></li>
-            </ul>
-          </div>
 
-          {/* Special Sections */}
-          <div>
-            <h4 className="text-lg font-playfair font-bold mb-6 text-[#b8845c] flex items-center uppercase">
-              <div className="w-1 h-6 bg-[#b8845c] mr-3 rounded"></div>
-              Collections
-            </h4>
-            <ul className="space-y-3">
-              <li><Link href="/mattresses" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Mattresses & Bases</Link></li>
-              <li><Link href="/custom-sectionals" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Custom Sectionals</Link></li>
-              <li><Link href="/custom-sofas" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Custom Sofas & Loveseats</Link></li>
-              <li><Link href="/custom-bedroom-sets" className="text-[#b8845c] hover:text-[#a0725a] transition flex items-center font-playfair"><span className="mr-2">›</span> Custom Bedroom Sets</Link></li>
+            <ul className="grid grid-cols-2 gap-x-12 gap-y-5 font-playfair text-[#b8845c]">
+              <li>
+                <Link 
+                  href="/mattresses" 
+                  className="block hover:text-[#a0725a] hover:translate-x-1 transition-all duration-300"
+                >
+                  Mattresses
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/bedroom-sets" 
+                  className="block hover:text-[#a0725a] hover:translate-x-1 transition-all duration-300"
+                >
+                  Bedroom Sets
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/dining-tables" 
+                  className="block hover:text-[#a0725a] hover:translate-x-1 transition-all duration-300"
+                >
+                  Dining Tables
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/loveseats" 
+                  className="block hover:text-[#a0725a] hover:translate-x-1 transition-all duration-300"
+                >
+                  Sofas & Loveseats
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/leather-sectionals" 
+                  className="block hover:text-[#a0725a] hover:translate-x-1 transition-all duration-300"
+                >
+                  Leather Sectionals
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/fabric-sectionals" 
+                  className="block hover:text-[#a0725a] hover:translate-x-1 transition-all duration-300"
+                >
+                  Fabric Sectionals
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/bunk-beds" 
+                  className="block hover:text-[#a0725a] hover:translate-x-1 transition-all duration-300"
+                >
+                  Bunk Beds
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/vanities" 
+                  className="block hover:text-[#a0725a] hover:translate-x-1 transition-all duration-300"
+                >
+                  Vanities
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/custom-furniture" 
+                  className="block hover:text-[#a0725a] hover:translate-x-1 transition-all duration-300"
+                >
+                  Custom Furniture
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/gallery" 
+                  className="block hover:text-[#a0725a] hover:translate-x-1 transition-all duration-300 font-medium"
+                >
+                  View Gallery →
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* Contact Info Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 border-t border-[#b8845c] border-opacity-20">
+        {/* CONTACT INFO */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 py-14 border-t border-[#b8845c]/20">
+
           {/* Phone */}
-          <div className="flex items-start space-x-4">
-            <div className="flex-shrink-0 w-12 h-12 bg-[#b8845c] rounded-full flex items-center justify-center text-white">
+          <div className="flex items-start space-x-5">
+            <div className="w-12 h-12 rounded-full bg-[#b8845c] text-white flex items-center justify-center">
               <PhoneIcon />
             </div>
-            <div>
-              <p className="text-[#b8845c] text-xs uppercase tracking-wider mb-2 font-semibold font-playfair">Phone</p>
-              <p className="text-[#a0725a] font-bold text-lg font-playfair">(916) 661-1073</p>
-              <p className="text-[#a0725a] font-bold text-lg font-playfair">(916) 994-0612</p>
+            <div className="font-playfair">
+              <p className="text-xs uppercase tracking-wider text-[#b8845c] mb-2 font-semibold">Phone</p>
+              <p className="text-[#a0725a] font-bold text-lg">(916) 661-1073</p>
+              <p className="text-[#a0725a] font-bold text-lg">(916) 994-0612</p>
             </div>
           </div>
 
           {/* Email */}
-          <div className="flex items-start space-x-4">
-            <div className="flex-shrink-0 w-12 h-12 bg-[#b8845c] rounded-full flex items-center justify-center text-white">
+          <div className="flex items-start space-x-5">
+            <div className="w-12 h-12 rounded-full bg-[#b8845c] text-white flex items-center justify-center">
               <EmailIcon />
             </div>
-            <div>
-              <p className="text-[#b8845c] text-xs uppercase tracking-wider mb-2 font-semibold font-playfair">Email</p>
-              <a href="mailto:info@myyspacefurniture.com" className="text-[#a0725a] font-bold hover:text-[#b8845c] transition break-words font-playfair">
+            <div className="font-playfair">
+              <p className="text-xs uppercase tracking-wider text-[#b8845c] mb-2 font-semibold">Email</p>
+              <a href="mailto:info@myyspacefurniture.com" className="text-[#a0725a] font-bold hover:text-[#b8845c] transition">
                 info@myyspacefurniture.com
               </a>
             </div>
           </div>
 
           {/* Location */}
-          <div className="flex items-start space-x-4">
-            <div className="flex-shrink-0 w-12 h-12 bg-[#b8845c] rounded-full flex items-center justify-center text-white">
+          <div className="flex items-start space-x-5">
+            <div className="w-12 h-12 rounded-full bg-[#b8845c] text-white flex items-center justify-center">
               <LocationIcon />
             </div>
-            <div>
-              <p className="text-[#b8845c] text-xs uppercase tracking-wider mb-2 font-semibold font-playfair">Location</p>
-              <p className="text-[#a0725a] font-bold font-playfair">1811 Douglas Blvd</p>
-              <p className="text-[#b8845c] text-sm font-playfair">Roseville, CA 95661</p>
+            <div className="font-playfair">
+              <p className="text-xs uppercase tracking-wider text-[#b8845c] mb-2 font-semibold">Location</p>
+              <p className="text-[#a0725a] font-bold">1811 Douglas Blvd</p>
+              <p className="text-[#b8845c] text-sm">Roseville, CA 95661</p>
             </div>
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="py-8 border-t border-[#b8845c] border-opacity-20 text-center">
-          <p className="text-[#b8845c] text-sm mb-2 font-playfair">
-            &copy; 2025 My Space Furniture. All rights reserved.
-          </p>
-          <p className="text-[#b8845c] text-sm font-playfair">
-            Designed and Developed by{' '}
-            <Link href="https://www.celestialwebsolutions.net" target="_blank" rel="noopener noreferrer" className="text-[#a0725a] hover:text-[#b8845c] transition font-bold">
-              Celestial Web Solutions
-            </Link>
+        {/* FOOTER BOTTOM */}
+        <div className="py-10 border-t border-[#b8845c]/20 text-center">
+          <p className="text-[#b8845c] text-lg font-playfair tracking-wide">
+            © 2025 My Space Furniture. All rights reserved.
           </p>
         </div>
+
       </div>
     </footer>
   )
