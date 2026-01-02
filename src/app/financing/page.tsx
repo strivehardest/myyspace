@@ -119,7 +119,7 @@ export default function Financing() {
                   href={option.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block w-full text-center px-6 py-2 bg-primary-blue text-white font-semibold rounded-lg hover:bg-secondary-blue transition"
+                  className="inline-block w-full text-center px-6 py-2 bg-white text-[#b8845c] font-semibold rounded-lg border-2 border-[#b8845c] hover:bg-[#b8845c] hover:text-white transition"
                 >
                   {option.cta}
                 </a>
@@ -193,7 +193,7 @@ export default function Financing() {
                 </a>
                 <Link
                   href="/contact"
-                  className="inline-block px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-blue transition"
+                  className="inline-block px-8 py-3 bg-white text-[#b8845c] font-semibold rounded-lg border-2 border-[#b8845c] hover:bg-[#b8845c] hover:text-white transition"
                 >
                   Contact Us
                 </Link>

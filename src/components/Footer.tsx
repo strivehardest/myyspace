@@ -203,12 +203,11 @@ export default function Footer() {
         {/* FOOTER BOTTOM */}
         <div className="py-10 border-t border-[#b8845c]/20 text-center">
           <p className="text-[#b8845c] text-lg font-playfair tracking-wide">
-            © 2026 My Space Furniture. All rights reserved.
+            © 2025 My Space Furniture. All rights reserved.
           </p>
         </div>
 
       </div>
     </footer>
   )
-
 }

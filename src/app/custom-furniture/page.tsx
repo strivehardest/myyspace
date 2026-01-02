@@ -33,12 +33,32 @@ export default function CustomFurniture() {
 
   return (
     <>
+
       <Header />
-      <PageHeader 
-        title="Custom Furniture"
-        subtitle="Design your perfect furniture tailored to your unique needs and style"
-        heroImage="/images/heroes/custom-furniture-hero.jpg"
-      />
+      {/* Hero Section with Video */}
+      <section className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+        {/* Content */}
+        <div className="relative z-10 text-center text-white px-4 pt-32 md:pt-48">
+          <h1 className="text-4xl md:text-6xl font-playfair font-bold mb-4 uppercase">
+            Custom Furniture
+          </h1>
+          <p className="text-xl md:text-2xl mb-6 text-gray-100">
+            Design your perfect furniture tailored to your unique needs and style
+          </p>
+        </div>
+      </section>
 
       <main>
         <ProductGrid

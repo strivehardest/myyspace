@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import PageHeader from '@/components/PageHeader'
+import Typewriter from '@/components/Typewriter'
 
 export const metadata: Metadata = {
   title: 'About My Space Furniture | Quality Furniture Since 2016',
@@ -18,28 +18,54 @@ export default function About() {
   return (
     <>
       <Header />
-      <PageHeader 
-        title="About My Space Furniture"
-        subtitle="Your trusted partner in creating beautiful, comfortable spaces"
-        heroImage="/images/heroes/about-hero.jpg"
-      />
+
+      {/* Page Title Above Hero */}
+      {/* Hero Section with Background Video, Title, and Typewriter */}
+      <section className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/hero1.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay for text visibility */}
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="relative z-20 w-full flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-2xl md:text-4xl font-playfair font-bold text-white mb-2 drop-shadow-lg uppercase">My Space Furniture</h1>
+          <span className="text-xl md:text-3xl font-playfair text-white mb-6 drop-shadow-lg">
+            <Typewriter
+              words={["Your trusted partner in creating beautiful, comfortable spaces."]}
+              typingSpeed={80}
+              deletingSpeed={40}
+              delay={1200}
+              loop={true}
+              className="inline"
+            />
+          </span>
+        </div>
+      </section>
 
       <main className="py-16 md:py-24 bg-[#b8845c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <section className="mb-16">
-            <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue uppercase">About My Space Furniture</h2>
-            <p className="text-lg text-gray-700 mb-4">
-              My Space Furniture provides premium mattress and furniture sales to Roseville, Sacramento, Davis, Chico, and Yuba City, CA. Since 2016, we have been committed to offering quality furniture and exceptional customer service to our valued customers throughout Northern California.
-            </p>
-            <p className="text-lg text-gray-700 mb-4">
-              We are your trusted partner for creating beautiful, comfortable spaces. Whether you're looking for the perfect mattress, a stunning bedroom set, elegant dining room furniture, or custom pieces, we have something for every style and budget.
-            </p>
+            <div className="bg-light-gray rounded-lg p-8">
+              <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue uppercase">About My Space Furniture</h2>
+              <p className="text-lg text-gray-700 mb-4">
+                My Space Furniture provides premium mattress and furniture sales to Roseville, Sacramento, Davis, Chico, and Yuba City, CA. Since 2016, we have been committed to offering quality furniture and exceptional customer service to our valued customers throughout Northern California.
+              </p>
+              <p className="text-lg text-gray-700 mb-0">
+                We are your trusted partner for creating beautiful, comfortable spaces. Whether you're looking for the perfect mattress, a stunning bedroom set, elegant dining room furniture, or custom pieces, we have something for every style and budget.
+              </p>
+            </div>
           </section>
 
           <section className="mb-16">
             <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue uppercase">What We Offer</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-light-gray rounded-lg p-8">
                 <h3 className="text-xl font-playfair font-bold text-primary-blue mb-4">Services</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
@@ -72,7 +98,7 @@ export default function About() {
                   </li>
                 </ul>
               </div>
-              <div>
+              <div className="bg-light-gray rounded-lg p-8">
                 <h3 className="text-xl font-playfair font-bold text-primary-blue mb-4">Specialties</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
@@ -179,16 +205,27 @@ export default function About() {
             </div>
           </section>
 
-          <section className="bg-primary-blue text-white rounded-lg p-8">
-            <h2 className="text-2xl font-playfair font-bold mb-4 uppercase">Visit Our Showroom</h2>
-            <p className="text-lg mb-4">
-              Located in beautiful Roseville, CA, our showroom showcases our complete collection of mattresses, furniture, and custom pieces.
-            </p>
-            <div className="bg-white bg-opacity-10 p-6 rounded-lg">
-              <p className="mb-2"><strong>1811 Douglas Blvd</strong></p>
-              <p className="mb-4"><strong>Roseville, CA 95661</strong></p>
-              <p className="mb-2"><strong>Phone:</strong> (916) 661-1073 or (916) 994-0612</p>
-              <p><strong>Email:</strong> info@myyspacefurniture.com</p>
+          <section className="mb-16">
+            <div className="bg-light-gray rounded-lg p-8">
+              <h2 className="text-2xl font-playfair font-bold mb-4 uppercase text-primary-blue">Visit Our Showroom</h2>
+              <p className="text-lg mb-4 text-gray-700">
+                Located in beautiful Roseville, CA, our showroom showcases our complete collection of mattresses, furniture, and custom pieces.
+              </p>
+              <div className="bg-white bg-opacity-10 p-6 rounded-lg">
+                <div className="mb-4">
+                  <span className="font-semibold text-gray-700 mr-2">Location:</span>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=1811+Douglas+Blvd+Roseville+CA+95661"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-[#b8845c] hover:text-white hover:bg-[#b8845c] rounded px-2 py-1 transition"
+                  >
+                    1811 Douglas Blvd, Roseville, CA 95661
+                  </a>
+                </div>
+                <p className="mb-2 text-gray-700"><strong>Phone:</strong> <a href="tel:9166611073" className="text-[#b8845c] hover:text-white hover:bg-[#b8845c] rounded px-2 py-1 transition">(916) 661-1073</a> or <a href="tel:9169940612" className="text-[#b8845c] hover:text-white hover:bg-[#b8845c] rounded px-2 py-1 transition">(916) 994-0612</a></p>
+                <p className="text-gray-700"><strong>Email:</strong> <a href="mailto:info@myyspacefurniture.com" className="text-[#b8845c] hover:text-white hover:bg-[#b8845c] rounded px-2 py-1 transition">info@myyspacefurniture.com</a></p>
+              </div>
             </div>
           </section>
         </div>

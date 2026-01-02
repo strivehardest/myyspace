@@ -1,12 +1,14 @@
+
 import { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import Typewriter from '@/components/Typewriter'
 
 export const metadata: Metadata = {
   title: 'My Space Furniture - Premium Furniture Store | Mattresses, Sofas & More',
   description: 'Discover premium furniture at My Space Furniture. Shop mattresses, sofas, sectionals, bedroom sets, dining room furniture, and custom options with expert service.',
-  keywords: 'furniture store, mattresses, sofas, sectionals, bedroom sets, dining furniture, custom furniture, furniture near me, quality furniture, affordable furniture, modern furniture, contemporary furniture, luxury furniture, home furnishings, seating furniture, bedroom furniture, dining room, living room furniture, bedroom decor, USA furniture store, online furniture, furniture shopping',
+  keywords: 'furniture store, my space furniture, mattresses, sofas, sectionals, bedroom sets, dining furniture, custom furniture, furniture near me, quality furniture, affordable furniture, modern furniture, contemporary furniture, luxury furniture, home furnishings, seating furniture, bedroom furniture, dining room, living room furniture, bedroom decor, USA furniture store, online furniture, furniture shopping',
   openGraph: {
     title: 'My Space Furniture - Your Home Deserves Better',
     description: 'Premium furniture solutions for every room in your home',
@@ -50,12 +52,49 @@ export default function Home() {
             </div>
           </div>
           <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Premium Furniture for Your Perfect Home
+            <Typewriter
+              words={[
+                "Premium Furniture for Your Perfect Home",
+                "Custom Designs Tailored to You",
+                "Luxury Comfort, Affordable Prices",
+                "Expert Craftsmanship & Materials",
+                "Modern Styles for Every Room",
+                "Fast Delivery & White-Glove Service",
+                "Transform Your Living Space Today"
+              ]}
+              typingSpeed={60}
+              deletingSpeed={30}
+              delay={1200}
+              loop={true}
+            />
           </p>
         </div>
       </section>
 
+
       <main className="bg-[#b8845c]">
+        {/* Custom Furniture Section - Immediately after Hero, styled like hero */}
+        <section className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
+          {/* Background Video */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/hero.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/40" />
+          {/* Content */}
+          <div className="relative z-10 text-center text-white px-4 py-24 md:py-36 w-full flex flex-col items-center justify-center">
+            <h2 className="text-4xl md:text-6xl font-playfair font-bold mb-4 uppercase">Custom Furniture</h2>
+            <p className="text-lg md:text-2xl mb-8 text-gray-100 max-w-2xl mx-auto">Design your perfect furniture tailored to your unique needs and style. Choose your configuration, size, material, and color for a truly bespoke piece.</p>
+            <Link href="/custom-furniture" className="inline-block px-10 py-4 bg-white text-[#b8845c] font-bold text-lg rounded-lg hover:bg-[#b8845c] hover:text-white transition shadow-lg uppercase tracking-wider">Explore Custom Furniture</Link>
+          </div>
+        </section>
+
         {/* Featured Categories Grid - Full Screen Coverage */}
         <section className="w-full">
           <div className="w-full px-0">
@@ -67,9 +106,9 @@ export default function Home() {
                 { href: '/mattresses', title: 'Mattresses', image: '/products/mattresses.webp' },
                 { href: '/bunk-beds', title: 'Bunk Beds', image: '/products/bunk-bed-3.webp' },
                 { href: '/vanities', title: 'Vanities', image: '/products/vanity-33.webp' },
-                { href: '/leather-sectionals', title: 'Leather Sectionals', image: '/products/leather-sectional-9.webp' },
-                { href: '/fabric-sectionals', title: 'Fabric Sectionals', image: '/products/fabric-sectional-2.webp' },
-                { href: '/custom-furniture', title: 'Custom Furniture', image: '/products/custom.webp' },
+                { href: '/leather-sectionals', title: 'Leather Sectionals', image: '/products/leather-sectional-9.webp', video: '/videos/hero2.mp4' },
+                { href: '/fabric-sectionals', title: 'Fabric Sectionals', image: '/products/fabric-sectional-2.webp', video: '/videos/hero3.mp4' },
+                // Removed Custom Furniture from here
                 { href: '/gallery', title: 'Watch our Gallery', image: '/products/gallery/gallery-24.webp' },
               ].map((category) => (
                 <Link
@@ -77,17 +116,27 @@ export default function Home() {
                   href={category.href}
                   className="group relative w-full h-72 md:h-screen overflow-hidden shadow-lg hover:shadow-2xl transition-all"
                 >
-                  {/* Category Image */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
-                    style={{ backgroundImage: `url('${category.image}')` }}
-                  />
-                  
+                  {/* Category Image or Video for Sectionals */}
+                  {(category.title === 'Leather Sectionals' || category.title === 'Fabric Sectionals') && category.video ? (
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover z-0"
+                    >
+                      <source src={category.video} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <div
+                      className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-300 z-0"
+                      style={{ backgroundImage: `url('${category.image}')` }}
+                    />
+                  )}
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all" />
-                  
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all z-10" />
                   {/* Text Content */}
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center z-20">
                     <div className="text-center">
                       <h3 className="text-2xl md:text-4xl font-bold text-white mb-2 font-playfair uppercase">
                         {category.title}
@@ -162,7 +211,7 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="inline-block px-10 py-4 bg-white text-[#b8845c] font-bold text-lg rounded-lg hover:bg-[#ebebeb] transition shadow-lg"
+              className="inline-block px-10 py-4 bg-white text-[#b8845c] font-bold text-lg rounded-lg hover:bg-[#b8845c] hover:text-white transition shadow-lg"
             >
               Get in Touch
             </Link>

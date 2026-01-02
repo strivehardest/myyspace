@@ -93,7 +93,7 @@ export default function FAQ() {
                     >
                       <button
                         onClick={() => toggleItem(itemId)}
-                        className="w-full px-6 py-4 bg-light-gray hover:bg-blue-50 text-left font-semibold text-primary-blue transition flex justify-between items-center"
+                        className="w-full px-6 py-4 bg-white hover:bg-[#b8845c] text-left font-semibold text-[#b8845c] hover:text-white transition flex justify-between items-center border border-[#b8845c]"
                       >
                         <span>{item.question}</span>
                         <span className={`transition-transform ${isActive ? 'rotate-180' : ''}`}>
@@ -122,7 +122,7 @@ export default function FAQ() {
             </p>
             <Link
               href="/contact"
-              className="inline-block px-8 py-3 bg-primary-blue text-white font-semibold rounded-lg hover:bg-secondary-blue transition"
+              className="inline-block px-8 py-3 bg-white text-[#b8845c] font-semibold rounded-lg border-2 border-[#b8845c] hover:bg-[#b8845c] hover:text-white transition"
             >
               Contact Us
             </Link>

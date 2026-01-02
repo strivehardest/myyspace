@@ -70,7 +70,7 @@ export default function ProductGrid({
             <div className="text-center mt-12">
               <button
                 onClick={() => setVisibleCount(prev => prev + 21)}
-                className="px-8 py-3 bg-primary-blue text-white font-semibold rounded-lg hover:bg-opacity-90 transition-all"
+                className="px-8 py-3 bg-white text-[#b8845c] font-semibold rounded-lg border-2 border-[#b8845c] hover:bg-[#b8845c] hover:text-white transition-all"
               >
                 View More ({images.length - visibleCount} remaining)
               </button>
@@ -125,7 +125,7 @@ export default function ProductGrid({
               <button
                 onClick={handlePrevious}
                 disabled={images.indexOf(selectedImage) === 0}
-                className="px-4 py-2 bg-primary-blue text-white rounded-lg hover:bg-opacity-90 disabled:bg-gray-400 transition-all"
+                className="px-4 py-2 bg-white text-[#b8845c] rounded-lg border-2 border-[#b8845c] hover:bg-[#b8845c] hover:text-white disabled:bg-gray-400 transition-all"
                 aria-label="Previous image"
               >
                 ← Previous

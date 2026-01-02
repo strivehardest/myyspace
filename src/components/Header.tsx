@@ -2,10 +2,22 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Prevent background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
   
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
@@ -113,17 +125,19 @@ export default function Header() {
       <div 
         className={`lg:hidden fixed inset-0 z-50 transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setMobileMenuOpen(false)}
+        aria-modal="true"
+        role="dialog"
       >
         {/* Backdrop */}
-        <div className="absolute inset-0 bg-black/20" />
-        
+        <div className="absolute inset-0 bg-black/30" />
+
         {/* Menu Panel */}
         <div 
-          className={`absolute left-0 top-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+          className={`absolute left-0 top-0 bottom-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl transform transition-transform duration-300 flex flex-col ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
+          <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200 sticky top-0 bg-white z-10">
             <Link href="/" onClick={() => setMobileMenuOpen(false)}>
               <Image 
                 src="/logo.png" 
@@ -169,12 +183,12 @@ export default function Header() {
           </div>
 
           {/* Navigation Links */}
-          <nav className="px-6 py-4 overflow-y-auto max-h-[calc(100vh-200px)]">
-            <div className="space-y-1">
+          <nav className="px-6 py-4 flex-1 overflow-y-auto">
+            <div className="space-y-2">
               <Link 
                 href="/loveseats" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-3 text-sm text-gray-900 hover:text-gray-600 transition uppercase tracking-wider"
+                className="block py-4 text-base text-gray-900 hover:text-gray-600 transition uppercase tracking-wider rounded-lg focus:outline-none focus:bg-gray-100"
               >
                 Sofas & Loveseats
               </Link>
@@ -228,7 +242,7 @@ export default function Header() {
                   <Link 
                     href="/leather-sectionals" 
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block py-2 text-sm text-gray-600 hover:text-gray-900 transition"
+                    className="block py-3 text-base text-gray-700 hover:text-gray-900 transition rounded-lg focus:outline-none focus:bg-gray-100"
                   >
                     Leather Sectionals
                   </Link>
@@ -250,22 +264,16 @@ export default function Header() {
               >
                 Gallery
               </Link>
-              <Link 
-                href="/contact" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-3 text-sm text-gray-900 hover:text-gray-600 transition uppercase tracking-wider"
-              >
-                Contact
-              </Link>
+              {/* Removed duplicate Contact link to keep only the footer Contact Us button */}
             </div>
           </nav>
 
           {/* Footer */}
-          <div className="absolute bottom-0 left-0 right-0 px-6 py-4 border-t border-gray-200 bg-white">
+          <div className="sticky bottom-0 left-0 right-0 px-6 py-4 border-t border-gray-200 bg-white">
             <Link 
               href="/contact" 
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full py-3 text-center text-sm bg-gray-900 text-white hover:bg-gray-800 transition uppercase tracking-wider"
+              className="block w-full py-4 text-center text-base bg-white text-[#b8845c] hover:bg-[#b8845c] hover:text-white transition uppercase tracking-wider rounded-lg focus:outline-none border border-[#b8845c] font-bold shadow"
             >
               Contact Us
             </Link>
