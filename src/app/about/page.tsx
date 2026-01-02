@@ -37,7 +37,7 @@ export default function About() {
           <h1 className="text-2xl md:text-4xl font-playfair font-bold text-white mb-2 drop-shadow-lg uppercase">My Space Furniture</h1>
           <span className="text-xl md:text-3xl font-playfair text-white mb-6 drop-shadow-lg">
             <Typewriter
-              words={["Your trusted partner in creating beautiful, comfortable spaces."]}
+              words={["Your trusted partner in creating beautiful, comfortable spaces.", "Quality furniture for every room in your home.", "Serving Northern California since 2016.", "Discover premium mattresses and custom furniture today.", "Transform your space with our curated collection of furniture."]}
               typingSpeed={80}
               deletingSpeed={40}
               delay={1200}
