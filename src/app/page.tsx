@@ -118,7 +118,7 @@ export default function Home() {
         <section className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden my-16">
           {/* Hero Image */}
           <img
-            src="/products/custom-furniture/custom-sectional-hero.webp"
+            src="/products/custom-furniture/custom-bedroom-1.webp"
             alt="Custom Furniture Hero - My Space Furniture"
             className="absolute inset-0 w-full h-full object-cover z-0"
             width={1920}
