@@ -24,12 +24,12 @@ export default function Mattresses() {
       />
 
       <main>
-        <section className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden mt-16 md:mt-24">
+        <section className="relative w-full min-h-[60vh] md:min-h-[80vh] flex flex-col items-center justify-center overflow-hidden mt-4 md:mt-24">
           <div className="absolute inset-0 w-full h-full z-0">
             <img
               src={mattressImages[current]}
               alt={`Mattress Image ${current + 1}`}
-              className="w-full h-auto max-h-[60vh] md:max-h-[80vh] object-contain mx-auto rounded-xl md:rounded-2xl shadow-2xl border-2 md:border-4 border-[#b8845c] bg-white p-2 md:p-4"
+              className="w-full h-auto max-h-[40vh] md:max-h-[80vh] object-contain mx-auto rounded-xl md:rounded-2xl shadow-2xl border-2 md:border-4 border-[#b8845c] bg-white p-2 md:p-4"
               style={{ maxWidth: '98vw' }}
             />
           </div>

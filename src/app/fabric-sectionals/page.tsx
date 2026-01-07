@@ -17,33 +17,19 @@ export default function FabricSectionals() {
   return (
     <>
       <Header />
-      {/* Hero Section with Video */}
-      <section className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden mt-16 md:mt-24">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="/videos/hero3.mp4" type="video/mp4" />
-        </video>
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        {/* Content */}
-        <div className="relative z-20 text-center text-white px-4 py-24 md:py-36 w-full flex flex-col items-center justify-center">
-          <h2 className="text-4xl md:text-6xl font-playfair font-bold mb-4 uppercase">Fabric Sectionals</h2>
-          <p className="text-lg md:text-2xl mb-8 text-gray-100 max-w-2xl mx-auto">Premium fabric sectionals for comfortable living spaces</p>
-        </div>
-      </section>
+      <PageHeader
+        title="Fabric Sectionals"
+        subtitle="Premium fabric sectionals for comfortable living spaces"
+        heroImage="/images/heroes/fabric-sectionals-hero.webp"
+      />
 
       <main>
-        <section className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+        <section className="relative w-full min-h-[60vh] md:min-h-[80vh] flex flex-col items-center justify-center overflow-hidden mt-4 md:mt-24">
           <div className="absolute inset-0 w-full h-full z-0">
             <img
               src={fabricSectionalImages[current]}
               alt={`Fabric Sectional Image ${current + 1}`}
-              className="w-full h-auto max-h-[60vh] md:max-h-[80vh] object-contain mx-auto rounded-xl md:rounded-2xl shadow-2xl border-2 md:border-4 border-[#b8845c] bg-white p-2 md:p-4"
+              className="w-full h-auto max-h-[40vh] md:max-h-[80vh] object-contain mx-auto rounded-xl md:rounded-2xl shadow-2xl border-2 md:border-4 border-[#b8845c] bg-white p-2 md:p-4"
               style={{ maxWidth: '98vw' }}
             />
           </div>
