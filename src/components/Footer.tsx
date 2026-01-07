@@ -22,6 +22,7 @@ const LocationIcon = () => (
 )
 
 export default function Footer() {
+  const year = new Date().getFullYear();
   return (
     <footer className="bg-white relative">
       {/* Accent line */}
@@ -203,7 +204,7 @@ export default function Footer() {
         {/* FOOTER BOTTOM */}
         <div className="py-10 border-t border-[#b8845c]/20 text-center">
           <p className="text-[#b8845c] text-lg font-playfair tracking-wide">
-            © 2026 My Space Furniture. All rights reserved.
+            © {year} My Space Furniture. All rights reserved.
           </p>
         </div>
 

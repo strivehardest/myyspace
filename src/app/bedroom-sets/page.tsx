@@ -1,24 +1,18 @@
-import { Metadata } from 'next'
+"use client";
+import React from 'react';
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PageHeader from '@/components/PageHeader'
 import ProductGrid from '@/components/ProductGrid'
 
-export const metadata: Metadata = {
-  title: 'Bedroom Sets | Complete Bedroom Solutions - My Space Furniture',
-  description: 'Shop complete bedroom sets at My Space Furniture. Bed frames, dressers, nightstands. Create your perfect bedroom with quality furniture.',
-  keywords: 'bedroom sets, bed frames, dressers, nightstands, bedroom furniture, complete bedroom sets, modern bedroom, contemporary bedroom, luxury bedroom, affordable bedroom sets, queen bedroom set, king bedroom set, master bedroom, guest bedroom, bedroom decor',
-  openGraph: {
-    title: 'Bedroom Sets - My Space Furniture',
-    description: 'Complete bedroom solutions for restful nights',
-    type: 'website',
-  },
-}
 
 export default function BedroomSets() {
   const bedroomImages = Array.from({ length: 78 }, (_, i) => 
     `/products/bedroom-${i + 1}.webp`
-  )
+  );
+  const [current, setCurrent] = React.useState(0);
+  const handlePrev = () => setCurrent((prev) => (prev === 0 ? bedroomImages.length - 1 : prev - 1));
+  const handleNext = () => setCurrent((prev) => (prev === bedroomImages.length - 1 ? 0 : prev + 1));
 
   return (
     <>
@@ -30,11 +24,44 @@ export default function BedroomSets() {
       />
 
       <main>
-        <ProductGrid
-          title="Bedroom Collection"
-          description="Create your perfect bedroom with our selection of bed frames, nightstands, dressers, and complete bedroom sets. Quality craftsmanship for lasting comfort."
-          images={bedroomImages}
-        />
+        <section className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden mt-16 md:mt-24">
+          <div className="absolute inset-0 w-full h-full z-0">
+            <img
+              src={bedroomImages[current]}
+              alt={`Bedroom Image ${current + 1}`}
+              className="w-full h-auto max-h-[60vh] md:max-h-[80vh] object-contain mx-auto rounded-xl md:rounded-2xl shadow-2xl border-2 md:border-4 border-[#b8845c] bg-white p-2 md:p-4"
+              style={{ maxWidth: '98vw' }}
+            />
+          </div>
+          <div className="absolute left-8 top-1/2 -translate-y-1/2 z-10">
+            <button
+              onClick={handlePrev}
+              className="bg-[#b8845c] text-white rounded-full p-2 shadow-xl hover:bg-[#a0725a] transition"
+              aria-label="Previous image"
+              style={{ fontSize: '1.25rem' }}
+            >
+              &#8592;
+            </button>
+          </div>
+          <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10">
+            <button
+              onClick={handleNext}
+              className="bg-[#b8845c] text-white rounded-full p-2 shadow-xl hover:bg-[#a0725a] transition"
+              aria-label="Next image"
+              style={{ fontSize: '1.25rem' }}
+            >
+              &#8594;
+            </button>
+          </div>
+          <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-10">
+            {bedroomImages.map((_, idx) => (
+              <span
+                key={idx}
+                className={`inline-block w-3 h-3 rounded-full border-2 border-[#b8845c] ${current === idx ? 'bg-[#b8845c]' : 'bg-[#e5c7a0]'} transition`}
+              />
+            ))}
+          </div>
+        </section>
       </main>
 
       <Footer />

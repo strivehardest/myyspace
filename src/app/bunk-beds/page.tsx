@@ -1,24 +1,18 @@
-import { Metadata } from 'next'
+"use client";
+import React from 'react';
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PageHeader from '@/components/PageHeader'
 import ProductGrid from '@/components/ProductGrid'
 
-export const metadata: Metadata = {
-  title: 'Premium Bunk Beds | Kids & Loft Bunk Beds - My Space Furniture',
-  description: 'Shop premium bunk beds at My Space Furniture. Browse kids bunk beds, loft beds, and twin over twin options. Quality furniture with expert service.',
-  keywords: 'bunk beds, loft beds, kids furniture, twin beds, bunk bed sets',
-  openGraph: {
-    title: 'Premium Bunk Beds - My Space Furniture',
-    description: 'Discover quality bunk beds and loft beds for kids and guests',
-    type: 'website',
-  },
-}
 
 export default function BunkBeds() {
   const bunkBedImages = Array.from({ length: 33 }, (_, i) => 
     `/products/bunk-bed-${i + 1}.webp`
-  )
+  );
+  const [current, setCurrent] = React.useState(0);
+  const handlePrev = () => setCurrent((prev) => (prev === 0 ? bunkBedImages.length - 1 : prev - 1));
+  const handleNext = () => setCurrent((prev) => (prev === bunkBedImages.length - 1 ? 0 : prev + 1));
 
   return (
     <>
@@ -30,11 +24,44 @@ export default function BunkBeds() {
       />
 
       <main>
-        <ProductGrid
-          title="Bunk Beds Collection"
-          description="Browse our extensive selection of bunk beds and loft beds in various styles and configurations. Perfect for kids' rooms, guest rooms, and small spaces."
-          images={bunkBedImages}
-        />
+        <section className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden mt-16 md:mt-24">
+          <div className="absolute inset-0 w-full h-full z-0">
+            <img
+              src={bunkBedImages[current]}
+              alt={`Bunk Bed Image ${current + 1}`}
+              className="w-full h-auto max-h-[60vh] md:max-h-[80vh] object-contain mx-auto rounded-xl md:rounded-2xl shadow-2xl border-2 md:border-4 border-[#b8845c] bg-white p-2 md:p-4"
+              style={{ maxWidth: '98vw' }}
+            />
+          </div>
+          <div className="absolute left-8 top-1/2 -translate-y-1/2 z-10">
+            <button
+              onClick={handlePrev}
+              className="bg-[#b8845c] text-white rounded-full p-2 shadow-xl hover:bg-[#a0725a] transition"
+              aria-label="Previous image"
+              style={{ fontSize: '1.25rem' }}
+            >
+              &#8592;
+            </button>
+          </div>
+          <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10">
+            <button
+              onClick={handleNext}
+              className="bg-[#b8845c] text-white rounded-full p-2 shadow-xl hover:bg-[#a0725a] transition"
+              aria-label="Next image"
+              style={{ fontSize: '1.25rem' }}
+            >
+              &#8594;
+            </button>
+          </div>
+          <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-10">
+            {bunkBedImages.map((_, idx) => (
+              <span
+                key={idx}
+                className={`inline-block w-3 h-3 rounded-full border-2 border-[#b8845c] ${current === idx ? 'bg-[#b8845c]' : 'bg-[#e5c7a0]'} transition`}
+              />
+            ))}
+          </div>
+        </section>
       </main>
 
       <Footer />

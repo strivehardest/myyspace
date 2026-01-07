@@ -78,6 +78,9 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center justify-center space-x-10 h-14 border-t border-gray-100 text-sm uppercase tracking-wider font-medium">
+          <Link href="/" className="text-gray-900 hover:text-gray-600 transition">
+            Home
+          </Link>
           <Link href="/loveseats" className="text-gray-900 hover:text-gray-600 transition">
             Sofas
           </Link>
@@ -112,8 +115,8 @@ export default function Header() {
           <Link href="/custom-furniture" className="text-gray-900 hover:text-gray-600 transition">
             Custom Furniture
           </Link>
-          <Link href="/gallery" className="text-gray-900 hover:text-gray-600 transition">
-            Gallery
+          <Link href="/financing" className="text-gray-900 hover:text-gray-600 transition">
+            Financing
           </Link>
           <Link href="/contact" className="text-gray-900 hover:text-gray-600 transition">
             Contact
@@ -186,6 +189,13 @@ export default function Header() {
           <nav className="px-6 py-4 flex-1 overflow-y-auto">
             <div className="space-y-2">
               <Link 
+                href="/" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="block py-4 text-base text-gray-900 hover:text-gray-600 transition uppercase tracking-wider rounded-lg focus:outline-none focus:bg-gray-100"
+              >
+                Home
+              </Link>
+              <Link 
                 href="/loveseats" 
                 onClick={() => setMobileMenuOpen(false)}
                 className="block py-4 text-base text-gray-900 hover:text-gray-600 transition uppercase tracking-wider rounded-lg focus:outline-none focus:bg-gray-100"
@@ -234,7 +244,6 @@ export default function Header() {
               >
                 Custom Furniture
               </Link>
-              
               {/* Sectionals Submenu */}
               <div className="py-3">
                 <div className="text-sm text-gray-900 uppercase tracking-wider font-medium mb-2">Sectionals</div>
@@ -255,14 +264,12 @@ export default function Header() {
                   </Link>
                 </div>
               </div>
-
-
               <Link 
-                href="/gallery" 
+                href="/financing" 
                 onClick={() => setMobileMenuOpen(false)}
                 className="block py-3 text-sm text-gray-900 hover:text-gray-600 transition uppercase tracking-wider"
               >
-                Gallery
+                Financing
               </Link>
               {/* Removed duplicate Contact link to keep only the footer Contact Us button */}
             </div>

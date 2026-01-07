@@ -1,56 +1,98 @@
+"use client";
 
-import { Metadata } from 'next'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import Link from 'next/link'
-import Typewriter from '@/components/Typewriter'
+import React, { useRef, useState, useEffect } from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Link from 'next/link';
+import Typewriter from '@/components/Typewriter';
 
-export const metadata: Metadata = {
-  title: 'My Space Furniture - Premium Furniture Store | Mattresses, Sofas & More',
-  description: 'Discover premium furniture at My Space Furniture. Shop mattresses, sofas, sectionals, bedroom sets, dining room furniture, and custom options with expert service.',
-  keywords: 'furniture store, my space furniture, mattresses, sofas, sectionals, bedroom sets, dining furniture, custom furniture, furniture near me, quality furniture, affordable furniture, modern furniture, contemporary furniture, luxury furniture, home furnishings, seating furniture, bedroom furniture, dining room, living room furniture, bedroom decor, USA furniture store, online furniture, furniture shopping',
-  openGraph: {
-    title: 'My Space Furniture - Your Home Deserves Better',
-    description: 'Premium furniture solutions for every room in your home',
-    type: 'website',
-  },
+const categoriesBeforeWhyChoose = [
+  { href: '/loveseats', title: 'Sofa & Loveseats', image: '/products/sofa.webp' },
+  { href: '/bedroom-sets', title: 'Bedroom Sets', image: '/products/bedroom.webp' },
+  { href: '/dining-tables', title: 'Dining', image: '/products/dining-table-2.webp' },
+  { href: '/mattresses', title: 'Mattresses', image: '/products/mattresses.webp' },
+  { href: '/bunk-beds', title: 'Bunk Beds', image: '/products/bunk-bed-3.webp' },
+  { href: '/vanities', title: 'Vanities', image: '/products/vanity-33.webp' },
+  { href: '/leather-sectionals', title: 'Leather Sectionals', image: '/products/leather-sectional-9.webp' },
+];
+
+const fabricSectionalCategory = { 
+  href: '/fabric-sectionals', 
+  title: 'Fabric Sectionals', 
+  image: '/products/fabric-sectional-2.webp' 
+};
+
+function HeroVideoSequence() {
+  const [videoIdx, setVideoIdx] = useState(0);
+  const videos = [
+    '/videos/hero4.mp4',
+    '/videos/hero5.mp4',
+  ];
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleEnded = () => {
+    // Loop back to first video
+    setVideoIdx((prev) => (prev + 1) % videos.length);
+  };
+
+  useEffect(() => {
+    const videoEl = videoRef.current;
+    if (videoEl) {
+      videoEl.load();
+      videoEl.play().catch((error) => {
+        console.log('Video autoplay prevented:', error);
+      });
+    }
+  }, [videoIdx]);
+
+  return (
+    <video
+      ref={videoRef}
+      key={videos[videoIdx]}
+      autoPlay
+      muted
+      playsInline
+      loop={false}
+      controls={false}
+      preload="auto"
+      className="absolute inset-0 w-full h-full object-cover"
+      onEnded={handleEnded}
+    >
+      <source src={videos[videoIdx]} type="video/mp4" />
+    </video>
+  );
 }
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section with Background Video - Full Coverage */}
+      {/* Hero Section with Background Video */}
       <section className="relative w-full min-h-[110vh] md:min-h-[130vh] flex items-center justify-center overflow-hidden">
         {/* Header Overlay */}
         <div className="absolute top-0 left-0 right-0 z-20">
           <Header />
         </div>
 
-        {/* Background Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/hero1.mp4" type="video/mp4" />
-        </video>
-        
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        {/* Background Videos (sequential) */}
+        <HeroVideoSequence />
 
-        {/* Content - Pushed down below header */}
-        <div className="relative z-10 text-center text-white px-4 pt-64 md:pt-80 lg:pt-96">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 z-10" />
+
+        {/* Content */}
+        <div className="relative z-20 text-center text-white px-4 pt-64 md:pt-80 lg:pt-96">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold mb-4 uppercase">
             My Space Furniture
           </h1>
-          {/* Sale Banner Under Title */}
+          
+          {/* Sale Banner */}
           <div className="flex justify-center w-full mb-6">
             <div className="bg-white/90 text-black text-lg md:text-xl font-bold font-playfair px-6 py-2 rounded shadow-lg border border-gray-200 max-w-xl text-center tracking-wide uppercase" style={{letterSpacing:'0.08em'}}>
               Save up to <span className="text-[#b8845c]">50%</span> off your sale
             </div>
           </div>
+          
+          {/* Typewriter Text */}
           <p className="text-xl md:text-2xl mb-8 text-gray-100">
             <Typewriter
               words={[
@@ -71,89 +113,142 @@ export default function Home() {
         </div>
       </section>
 
-
       <main className="bg-[#b8845c]">
-        {/* Custom Furniture Section - Immediately after Hero, styled like hero */}
-        <section className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
-          {/* Background Video */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/videos/hero.mp4" type="video/mp4" />
-          </video>
+        {/* Custom Furniture Section */}
+        <section className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden my-16">
+          {/* Hero Image */}
+          <img
+            src="/products/custom-furniture/custom-sectional-hero.webp"
+            alt="Custom Furniture Hero - My Space Furniture"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+            width={1920}
+            height={800}
+            loading="eager"
+          />
+          
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/40 z-10" />
+          
           {/* Content */}
-          <div className="relative z-10 text-center text-white px-4 py-24 md:py-36 w-full flex flex-col items-center justify-center">
-            <h2 className="text-4xl md:text-6xl font-playfair font-bold mb-4 uppercase">Custom Furniture</h2>
-            <p className="text-lg md:text-2xl mb-8 text-gray-100 max-w-2xl mx-auto">Design your perfect furniture tailored to your unique needs and style. Choose your configuration, size, material, and color for a truly bespoke piece.</p>
-            <Link href="/custom-furniture" className="inline-block px-10 py-4 bg-white text-[#b8845c] font-bold text-lg rounded-lg hover:bg-[#b8845c] hover:text-white transition shadow-lg uppercase tracking-wider">Explore Custom Furniture</Link>
+          <div className="relative z-20 text-center text-white px-4 py-24 md:py-36 w-full flex flex-col items-center justify-center">
+            <h2 className="text-4xl md:text-6xl font-playfair font-bold mb-4 uppercase">
+              Custom Furniture
+            </h2>
+            <p className="text-lg md:text-2xl mb-8 text-gray-100 max-w-2xl mx-auto">
+              Design your perfect furniture tailored to your unique needs and style. Choose your configuration, size, material, and color for a truly bespoke piece.
+            </p>
+            <Link 
+              href="/custom-furniture" 
+              className="inline-block px-10 py-4 bg-white text-[#b8845c] font-bold text-lg rounded-lg hover:bg-[#b8845c] hover:text-white transition shadow-lg uppercase tracking-wider"
+            >
+              Explore Custom Furniture
+            </Link>
           </div>
         </section>
 
-        {/* Featured Categories Grid - Full Screen Coverage */}
-        <section className="w-full">
+        {/* Divider */}
+        <div className="w-full flex justify-center items-center my-12">
+          <hr className="w-full h-1 border-0 bg-gradient-to-r from-[#b8845c] via-[#e5c7a0] to-[#b8845c] rounded-full shadow-lg animate-pulse transition-all duration-700" />
+        </div>
+
+        {/* Featured Categories Grid */}
+        <section className="w-full my-16">
           <div className="w-full px-0">
-            <div className="grid grid-cols-1 gap-0">
-              {[
-                { href: '/loveseats', title: 'Sofa & Loveseats', image: '/products/sofa.webp' },
-                { href: '/bedroom-sets', title: 'Bedroom Sets', image: '/products/bedroom.webp' },
-                { href: '/dining-tables', title: 'Dining', image: '/products/dining-table-2.webp' },
-                { href: '/mattresses', title: 'Mattresses', image: '/products/mattresses.webp' },
-                { href: '/bunk-beds', title: 'Bunk Beds', image: '/products/bunk-bed-3.webp' },
-                { href: '/vanities', title: 'Vanities', image: '/products/vanity-33.webp' },
-                { href: '/leather-sectionals', title: 'Leather Sectionals', image: '/products/leather-sectional-9.webp', video: '/videos/hero2.mp4' },
-                { href: '/fabric-sectionals', title: 'Fabric Sectionals', image: '/products/fabric-sectional-2.webp', video: '/videos/hero3.mp4' },
-                // Removed Custom Furniture from here
-                { href: '/gallery', title: 'Watch our Gallery', image: '/products/gallery/gallery-24.webp' },
-              ].map((category) => (
-                <Link
-                  key={category.href}
-                  href={category.href}
-                  className="group relative w-full h-72 md:h-screen overflow-hidden shadow-lg hover:shadow-2xl transition-all"
-                >
-                  {/* Category Image or Video for Sectionals */}
-                  {(category.title === 'Leather Sectionals' || category.title === 'Fabric Sectionals') && category.video ? (
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="absolute inset-0 w-full h-full object-cover z-0"
-                    >
-                      <source src={category.video} type="video/mp4" />
-                    </video>
-                  ) : (
+            <div className="grid grid-cols-1 gap-12">
+              {categoriesBeforeWhyChoose.map((category, idx) => (
+                <React.Fragment key={category.href}>
+                  <Link
+                    href={category.href}
+                    className="group relative w-full h-72 md:h-screen overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all border border-[#e5c7a0] bg-white/10 backdrop-blur-lg"
+                  >
+                    {/* Category Image */}
                     <div
                       className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-300 z-0"
                       style={{ backgroundImage: `url('${category.image}')` }}
                     />
-                  )}
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all z-10" />
-                  {/* Text Content */}
-                  <div className="absolute inset-0 flex items-center justify-center z-20">
-                    <div className="text-center">
-                      <h3 className="text-2xl md:text-4xl font-bold text-white mb-2 font-playfair uppercase">
-                        {category.title}
-                      </h3>
-                      <p className="text-[#ebebeb] opacity-0 group-hover:opacity-100 transition font-playfair text-sm md:text-lg">
-                        Explore Collection →
-                      </p>
+                    
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all z-10" />
+                    
+                    {/* Text Content */}
+                    <div className="absolute inset-0 flex items-center justify-center z-20">
+                      <div className="text-center px-6 py-8 bg-black/40 rounded-xl shadow-lg border border-[#b8845c]">
+                        <h3 className="text-2xl md:text-4xl font-bold text-white mb-2 font-playfair uppercase drop-shadow-lg">
+                          {category.title}
+                        </h3>
+                        <p className="text-[#e5c7a0] opacity-0 group-hover:opacity-100 transition font-playfair text-sm md:text-lg font-semibold tracking-wide drop-shadow">
+                          Explore Collection →
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                  
+                  {/* Divider after Sofa & Loveseats */}
+                  {category.title === 'Sofa & Loveseats' && (
+                    <div className="w-full flex justify-center items-center my-8">
+                      <hr className="w-full h-1 border-0 bg-gradient-to-r from-[#b8845c] via-[#e5c7a0] to-[#b8845c] rounded-full shadow-lg animate-pulse transition-all duration-700" />
+                    </div>
+                  )}
+                </React.Fragment>
               ))}
             </div>
           </div>
         </section>
 
+        {/* Divider */}
+        <div className="w-full flex justify-center items-center my-12">
+          <hr className="w-3/4 h-1 border-0 bg-gradient-to-r from-[#b8845c] via-[#e5c7a0] to-[#b8845c] rounded-full shadow-md" />
+        </div>
+
+        {/* Fabric Sectionals Section */}
+        <section className="w-full my-16">
+          <div className="w-full px-0">
+            <div className="grid grid-cols-1 gap-12">
+              <Link
+                href={fabricSectionalCategory.href}
+                className="group relative w-full h-72 md:h-screen overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all border border-[#e5c7a0] bg-white/10 backdrop-blur-lg"
+              >
+                {/* Category Video - Fabric Sectionals Hero3 */}
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover z-0"
+                  width={1920}
+                  height={800}
+                  preload="auto"
+                  poster="/products/fabric-sectionals/hero3.webp"
+                >
+                  <source src="/videos/hero3.mp4" type="video/mp4" />
+                </video>
+                
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all z-10" />
+                
+                {/* Text Content */}
+                <div className="absolute inset-0 flex items-center justify-center z-20">
+                  <div className="text-center px-6 py-8 bg-black/40 rounded-xl shadow-lg border border-[#b8845c]">
+                    <h3 className="text-2xl md:text-4xl font-bold text-white mb-2 font-playfair uppercase drop-shadow-lg">
+                      {fabricSectionalCategory.title}
+                    </h3>
+                    <p className="text-[#e5c7a0] opacity-0 group-hover:opacity-100 transition font-playfair text-sm md:text-lg font-semibold tracking-wide drop-shadow">
+                      Explore Collection →
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="w-full flex justify-center items-center my-12">
+          <hr className="w-3/4 h-1 border-0 bg-gradient-to-r from-[#b8845c] via-[#e5c7a0] to-[#b8845c] rounded-full shadow-md" />
+        </div>
+
         {/* Why Choose Us Section */}
-        <section className="py-20 bg-[#a0725a]">
+        <section className="py-20 bg-[#a0725a] my-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-4xl md:text-5xl font-playfair font-bold text-center mb-16 text-[#ebebeb] uppercase">
               Why Choose My Space Furniture?
@@ -188,7 +283,7 @@ export default function Home() {
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="p-8 bg-white/10 rounded-lg border border-white/20 backdrop-blur"
+                  className="p-8 bg-white/10 rounded-lg border border-white/20 backdrop-blur hover:bg-white/15 transition-all duration-300"
                 >
                   <h3 className="text-xl font-bold text-[#ebebeb] mb-3">
                     {feature.title}
@@ -200,8 +295,13 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Divider */}
+        <div className="w-full flex justify-center items-center my-12">
+          <hr className="w-3/4 h-1 border-0 bg-gradient-to-r from-[#b8845c] via-[#e5c7a0] to-[#b8845c] rounded-full shadow-md" />
+        </div>
+
         {/* CTA Section */}
-        <section className="py-20 bg-[#b8845c]">
+        <section className="py-20 bg-[#b8845c] my-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6 text-[#ebebeb] uppercase">
               Ready to Transform Your Space?
@@ -211,7 +311,7 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="inline-block px-10 py-4 bg-white text-[#b8845c] font-bold text-lg rounded-lg hover:bg-[#b8845c] hover:text-white transition shadow-lg"
+              className="inline-block px-10 py-4 bg-white text-[#b8845c] font-bold text-lg rounded-lg hover:bg-[#b8845c] hover:text-white hover:border-white border-2 border-transparent transition shadow-lg"
             >
               Get in Touch
             </Link>
@@ -221,5 +321,5 @@ export default function Home() {
 
       <Footer />
     </>
-  )
+  );
 }

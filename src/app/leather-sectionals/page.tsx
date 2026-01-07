@@ -1,24 +1,18 @@
-import { Metadata } from 'next'
+"use client";
+import React from 'react';
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PageHeader from '@/components/PageHeader'
 import ProductGrid from '@/components/ProductGrid'
 
-export const metadata: Metadata = {
-  title: 'Premium Leather Sectionals | Quality Seating - My Space Furniture',
-  description: 'Shop premium leather sectionals at My Space Furniture. Browse contemporary and traditional leather sectional options. Quality furniture with expert service.',
-  keywords: 'leather sectionals, sectional couches, leather seating, furniture, premium sectionals',
-  openGraph: {
-    title: 'Premium Leather Sectionals - My Space Furniture',
-    description: 'Discover quality leather sectionals in various styles',
-    type: 'website',
-  },
-}
 
 export default function LeatherSectionals() {
   const leatherSectionalImages = Array.from({ length: 31 }, (_, i) => 
     `/products/leather-sectional-${i + 1}.webp`
-  )
+  );
+  const [current, setCurrent] = React.useState(0);
+  const handlePrev = () => setCurrent((prev) => (prev === 0 ? leatherSectionalImages.length - 1 : prev - 1));
+  const handleNext = () => setCurrent((prev) => (prev === leatherSectionalImages.length - 1 ? 0 : prev + 1));
 
   return (
     <>
@@ -30,11 +24,44 @@ export default function LeatherSectionals() {
       />
 
       <main>
-        <ProductGrid
-          title="Leather Sectionals Collection"
-          description="Browse our extensive selection of premium leather sectionals in various styles and configurations. From modern to classic, find the perfect leather sectional for your living room."
-          images={leatherSectionalImages}
-        />
+        <section className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden mt-16 md:mt-24">
+          <div className="absolute inset-0 w-full h-full z-0">
+            <img
+              src={leatherSectionalImages[current]}
+              alt={`Leather Sectional Image ${current + 1}`}
+              className="w-full h-auto max-h-[60vh] md:max-h-[80vh] object-contain mx-auto rounded-xl md:rounded-2xl shadow-2xl border-2 md:border-4 border-[#b8845c] bg-white p-2 md:p-4"
+              style={{ maxWidth: '98vw' }}
+            />
+          </div>
+          <div className="absolute left-8 top-1/2 -translate-y-1/2 z-10">
+            <button
+              onClick={handlePrev}
+              className="bg-[#b8845c] text-white rounded-full p-2 shadow-xl hover:bg-[#a0725a] transition"
+              aria-label="Previous image"
+              style={{ fontSize: '1.25rem' }}
+            >
+              &#8592;
+            </button>
+          </div>
+          <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10">
+            <button
+              onClick={handleNext}
+              className="bg-[#b8845c] text-white rounded-full p-2 shadow-xl hover:bg-[#a0725a] transition"
+              aria-label="Next image"
+              style={{ fontSize: '1.25rem' }}
+            >
+              &#8594;
+            </button>
+          </div>
+          <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-10">
+            {leatherSectionalImages.map((_, idx) => (
+              <span
+                key={idx}
+                className={`inline-block w-3 h-3 rounded-full border-2 border-[#b8845c] ${current === idx ? 'bg-[#b8845c]' : 'bg-[#e5c7a0]'} transition`}
+              />
+            ))}
+          </div>
+        </section>
       </main>
 
       <Footer />
