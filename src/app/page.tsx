@@ -23,43 +23,55 @@ const fabricSectionalCategory = {
 };
 
 function HeroVideoSequence() {
-  const [videoIdx, setVideoIdx] = useState(0);
-  const videos = [
-    '/videos/hero4.mp4',
-    '/videos/hero5.mp4',
-  ];
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [activeVideo, setActiveVideo] = useState(0);
+  const video1Ref = useRef<HTMLVideoElement>(null);
+  const video2Ref = useRef<HTMLVideoElement>(null);
 
-  const handleEnded = () => {
-    // Loop back to first video
-    setVideoIdx((prev) => (prev + 1) % videos.length);
+  // When video 1 ends, switch to video 2
+  const handleVideo1Ended = () => {
+    setActiveVideo(1);
+    video2Ref.current?.play().catch(() => {});
   };
 
+  // When video 2 ends, switch to video 1
+  const handleVideo2Ended = () => {
+    setActiveVideo(0);
+    video1Ref.current?.play().catch(() => {});
+  };
+
+  // Start video 1 on mount and preload both
   useEffect(() => {
-    const videoEl = videoRef.current;
-    if (videoEl) {
-      videoEl.load();
-      videoEl.play().catch((error) => {
-        console.log('Video autoplay prevented:', error);
-      });
-    }
-  }, [videoIdx]);
+    video1Ref.current?.play().catch(() => {});
+  }, []);
 
   return (
-    <video
-      ref={videoRef}
-      key={videos[videoIdx]}
-      autoPlay
-      muted
-      playsInline
-      loop={false}
-      controls={false}
-      preload="auto"
-      className="absolute inset-0 w-full h-full object-cover"
-      onEnded={handleEnded}
-    >
-      <source src={videos[videoIdx]} type="video/mp4" />
-    </video>
+    <>
+      <video
+        ref={video1Ref}
+        autoPlay
+        muted
+        playsInline
+        loop={false}
+        controls={false}
+        preload="auto"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${activeVideo === 0 ? 'opacity-100 z-[1]' : 'opacity-0 z-0'}`}
+        onEnded={handleVideo1Ended}
+      >
+        <source src="/videos/hero4.mp4" type="video/mp4" />
+      </video>
+      <video
+        ref={video2Ref}
+        muted
+        playsInline
+        loop={false}
+        controls={false}
+        preload="auto"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${activeVideo === 1 ? 'opacity-100 z-[1]' : 'opacity-0 z-0'}`}
+        onEnded={handleVideo2Ended}
+      >
+        <source src="/videos/hero5.mp4" type="video/mp4" />
+      </video>
+    </>
   );
 }
 
