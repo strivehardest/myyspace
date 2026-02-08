@@ -69,7 +69,7 @@ export default function Home() {
       {/* Hero Section with Background Video */}
       <section className="relative w-full min-h-[110vh] md:min-h-[130vh] flex items-center justify-center overflow-hidden">
         {/* Header Overlay */}
-        <div className="absolute top-0 left-0 right-0 z-20">
+        <div className="absolute top-0 left-0 right-0 z-50">
           <Header />
         </div>
 
