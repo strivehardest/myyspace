@@ -58,22 +58,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
         <meta name="theme-color" content="#b8845c" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              function googleTranslateElementInit() {
-                new google.translate.TranslateElement(
-                  { pageLanguage: 'en', autoDisplay: false },
-                  'google_translate_element'
-                );
-              }
-            `,
-          }}
-        />
-        <script
-          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-          async
-        />
+        {/* Google Translate scripts removed as requested */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="My Space Furniture" />
