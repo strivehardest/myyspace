@@ -5,7 +5,7 @@ import WhatsAppChat from '@/components/WhatsAppChat';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import ScrollToTop from '@/components/ScrollToTop';
 import PWAInstallPrompt from '@/components/PWAInstallPrompt';
-import CookieBanner from '@/components/CookieBanner';
+
 
 export const metadata: Metadata = {
   title: 'My Space Furniture - Quality Furniture for Every Room',
@@ -84,7 +84,6 @@ export default function RootLayout({
       </head>
       <body className="bg-[#b8845c] text-[#ebebeb] font-playfair">
         <GoogleAnalytics />
-        <CookieBanner />
         <PWAInstallPrompt />
         {children}
         <WhatsAppChat />
