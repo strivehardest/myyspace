@@ -37,20 +37,20 @@ export default function GoogleTranslate() {
     }
 
     if (window.google?.translate?.TranslateElement) {
-      doInit()
-      return
+      // Already loaded — wait briefly for DOM then reinit
+      const t = setTimeout(doInit, 50)
+      return () => clearTimeout(t)
     }
 
-    // Remove old script to force fresh load
-    const old = document.getElementById('google-translate-script')
-    if (old) old.remove()
-
-    window.googleTranslateElementInit = doInit
-    const script = document.createElement('script')
-    script.id = 'google-translate-script'
-    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
-    script.async = true
-    document.head.appendChild(script)
+    // First load — fetch script
+    if (!document.getElementById('google-translate-script')) {
+      window.googleTranslateElementInit = doInit
+      const script = document.createElement('script')
+      script.id = 'google-translate-script'
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+      script.async = true
+      document.head.appendChild(script)
+    }
   }, [])
 
   return <div id="google_translate_element" />
