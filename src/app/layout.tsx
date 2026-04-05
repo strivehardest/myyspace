@@ -82,7 +82,7 @@ export default function RootLayout({
         />
         {/* Google Analytics now loaded conditionally in body via component */}
       </head>
-      <body className="bg-[#b8845c] text-[#ebebeb] font-playfair">
+      <body className="bg-white text-[#ebebeb] font-playfair">
         <GoogleAnalytics />
         <PWAInstallPrompt />
         {children}
