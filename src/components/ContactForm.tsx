@@ -22,17 +22,19 @@ export default function ContactForm() {
     setErrorMsg('')
 
     try {
-
       // Combine country code and phone for submission
-      const { countryCode, ...submissionData } = {
+      const { countryCode, ...finalData } = {
         ...formData,
         phone: `${formData.countryCode} ${formData.phone}`,
       }
 
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(submissionData),
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          ...finalData,
+        }),
       })
 
       const data = await res.json()
