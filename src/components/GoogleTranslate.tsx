@@ -12,7 +12,6 @@ declare global {
 
 export default function GoogleTranslate() {
   useEffect(() => {
-    // Patch DOM once to prevent React crashes
     if (!window.__gtPatched) {
       const origRemoveChild = Node.prototype.removeChild
       Node.prototype.removeChild = function <T extends Node>(child: T): T {
@@ -28,32 +27,41 @@ export default function GoogleTranslate() {
     }
 
     const el = document.getElementById('google_translate_element')
-    if (el) el.innerHTML = '' // Clear old widget on every navigation
+    if (el) el.innerHTML = ''
 
-    const doInit = () => {
+    const tryInit = () => {
       if (window.google?.translate?.TranslateElement) {
         new window.google.translate.TranslateElement(
           { pageLanguage: 'en', autoDisplay: false },
           'google_translate_element'
         )
+        return true
       }
+      return false
     }
 
-    if (window.google?.translate?.TranslateElement) {
-      // Script already loaded — just reinit into the fresh div
-      doInit()
+    // If already loaded, init immediately
+    if (tryInit()) return
+
+    // Load script if not already added
+    if (!document.getElementById('google-translate-script')) {
+      window.googleTranslateElementInit = () => tryInit()
+      const script = document.createElement('script')
+      script.id = 'google-translate-script'
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+      script.async = true
+      document.head.appendChild(script)
     } else {
-      // First load — fetch script
-      window.googleTranslateElementInit = doInit
-      if (!document.getElementById('google-translate-script')) {
-        const script = document.createElement('script')
-        script.id = 'google-translate-script'
-        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
-        script.async = true
-        document.head.appendChild(script)
-      }
+      // Script tag exists but google object not ready yet — poll every 300ms
+      let attempts = 0
+      const poll = setInterval(() => {
+        attempts++
+        if (tryInit() || attempts > 20) {
+          clearInterval(poll)
+        }
+      }, 300)
     }
-  }, []) // Runs on every mount (every page navigation)
+  }, [])
 
   return <div id="google_translate_element" />
 }
