@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 declare global {
   interface Window {
@@ -11,6 +12,8 @@ declare global {
 }
 
 export default function GoogleTranslate() {
+  const pathname = usePathname()
+
   useEffect(() => {
     if (!window.__gtPatched) {
       const origRemoveChild = Node.prototype.removeChild
@@ -40,10 +43,8 @@ export default function GoogleTranslate() {
       return false
     }
 
-    // If already loaded, init immediately
     if (tryInit()) return
 
-    // Load script if not already added
     if (!document.getElementById('google-translate-script')) {
       window.googleTranslateElementInit = () => tryInit()
       const script = document.createElement('script')
@@ -52,16 +53,13 @@ export default function GoogleTranslate() {
       script.async = true
       document.head.appendChild(script)
     } else {
-      // Script tag exists but google object not ready yet — poll every 300ms
       let attempts = 0
       const poll = setInterval(() => {
         attempts++
-        if (tryInit() || attempts > 20) {
-          clearInterval(poll)
-        }
+        if (tryInit() || attempts > 20) clearInterval(poll)
       }, 300)
     }
-  }, [])
+  }, [pathname]) // ← re-runs on every route change
 
   return <div id="google_translate_element" />
 }
