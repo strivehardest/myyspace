@@ -39,7 +39,7 @@ export default function ContactForm() {
 
       if (res.ok && data.success) {
         setStatus('success')
-        setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+        setFormData({ name: '', email: '', countryCode: '+1', phone: '', subject: '', message: '' })
       } else {
         setStatus('error')
         setErrorMsg(data.error || 'Failed to send message.')
