@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 
 declare global {
   interface Window {
@@ -11,8 +11,6 @@ declare global {
 }
 
 export default function GoogleTranslate() {
-  const idRef = useRef(`gte_${Date.now()}`)
-
   useEffect(() => {
     if (!window.__gtPatched) {
       const origRemoveChild = Node.prototype.removeChild
@@ -28,44 +26,32 @@ export default function GoogleTranslate() {
       window.__gtPatched = true
     }
 
-    const elId = idRef.current
-
     const doInit = () => {
-      if (window.google?.translate?.TranslateElement) {
-        new window.google.translate.TranslateElement(
-          { pageLanguage: 'en', autoDisplay: false },
-          elId
-        )
-      }
+      const el = document.getElementById('google_translate_element')
+      if (!el) return
+      el.innerHTML = ''
+      new window.google.translate.TranslateElement(
+        { pageLanguage: 'en', autoDisplay: false },
+        'google_translate_element'
+      )
     }
 
-    // Small delay to ensure DOM is settled after navigation
-    const timer = setTimeout(() => {
-      if (window.google?.translate?.TranslateElement) {
-        doInit()
-      } else if (!document.getElementById('google-translate-script')) {
-        window.googleTranslateElementInit = doInit
-        const script = document.createElement('script')
-        script.id = 'google-translate-script'
-        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
-        script.async = true
-        document.head.appendChild(script)
-      } else {
-        let attempts = 0
-        const poll = setInterval(() => {
-          attempts++
-          if (window.google?.translate?.TranslateElement) {
-            doInit()
-            clearInterval(poll)
-          } else if (attempts > 20) {
-            clearInterval(poll)
-          }
-        }, 300)
-      }
-    }, 100)
+    if (window.google?.translate?.TranslateElement) {
+      doInit()
+      return
+    }
 
-    return () => clearTimeout(timer)
+    // Remove old script to force fresh load
+    const old = document.getElementById('google-translate-script')
+    if (old) old.remove()
+
+    window.googleTranslateElementInit = doInit
+    const script = document.createElement('script')
+    script.id = 'google-translate-script'
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+    script.async = true
+    document.head.appendChild(script)
   }, [])
 
-  return <div id={idRef.current} />
+  return <div id="google_translate_element" />
 }
