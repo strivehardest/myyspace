@@ -24,11 +24,10 @@ export default function ContactForm() {
     try {
 
       // Combine country code and phone for submission
-      const submissionData = {
+      const { countryCode, ...submissionData } = {
         ...formData,
         phone: `${formData.countryCode} ${formData.phone}`,
       }
-      delete submissionData.countryCode
 
       const res = await fetch('/api/contact', {
         method: 'POST',
