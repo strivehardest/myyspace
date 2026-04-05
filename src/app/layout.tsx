@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import WhatsAppChat from '@/components/WhatsAppChat'
-import GoogleAnalytics from '@/components/GoogleAnalytics'
-import ScrollToTop from '@/components/ScrollToTop'
+
+import WhatsAppChat from '@/components/WhatsAppChat';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
+import ScrollToTop from '@/components/ScrollToTop';
+import PWAInstallPrompt from '@/components/PWAInstallPrompt';
+import CookieBanner from '@/components/CookieBanner';
 
 export const metadata: Metadata = {
   title: 'My Space Furniture - Quality Furniture for Every Room',
   description: 'Transform your space with My Space Furniture. Explore premium mattresses, sectionals, sofas, bedroom sets, dining room furniture, and custom furniture solutions.',
   keywords: 'furniture, mattresses, sofas, sectionals, bedroom sets, dining room, custom furniture, home decor',
   authors: [{ name: 'My Space Furniture' }],
-  viewport: 'width=device-width, initial-scale=1',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -35,6 +37,11 @@ export const metadata: Metadata = {
   robots: 'index, follow',
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -44,11 +51,17 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
         <link rel="canonical" href="https://myyspacefurniture.com" />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
-        <meta name="theme-color" content="#1E3A8A" />
+        <meta name="theme-color" content="#b8845c" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="My Space Furniture" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="robots" content="index, follow" />
         <script
           type="application/ld+json"
@@ -67,21 +80,12 @@ export default function RootLayout({
             }),
           }}
         />
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2HX9RZGL6V"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-2HX9RZGL6V');
-            `,
-          }}
-        />
+        {/* Google Analytics now loaded conditionally in body via component */}
       </head>
       <body className="bg-[#b8845c] text-[#ebebeb] font-playfair">
         <GoogleAnalytics />
+        <CookieBanner />
+        <PWAInstallPrompt />
         {children}
         <WhatsAppChat />
         <ScrollToTop />

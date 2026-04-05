@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PageHeader from '@/components/PageHeader'
+import GoogleReviews from '@/components/GoogleReviews'
+import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact My Space Furniture | Get in Touch',
@@ -40,7 +42,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-xl font-playfair font-bold text-[#ebebeb] mb-3">Email</h3>
-                  <p className="text-[#ebebeb] text-lg">info@myyspacefurniture.com</p>
+                  <p className="text-[#ebebeb] text-lg">myyspacefurniture@gmail.com</p>
                   <p className="text-[#ebebeb] text-base">We respond within 24 hours</p>
                 </div>
                 <div>
@@ -59,79 +61,45 @@ export default function Contact() {
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-playfair font-bold text-[#ebebeb] mb-8 uppercase">Send us a Message</h2>
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-base font-semibold text-[#ebebeb] mb-3">Name</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent outline-none"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-base font-semibold text-[#ebebeb] mb-3">Email</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent outline-none"
-                    placeholder="your@email.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-base font-semibold text-[#ebebeb] mb-3">Phone</label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent outline-none"
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-                <div>
-                  <label className="block text-base font-semibold text-[#ebebeb] mb-3">Subject</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent outline-none"
-                    placeholder="Subject"
-                  />
-                </div>
-                <div>
-                  <label className="block text-base font-semibold text-[#ebebeb] mb-3">Message</label>
-                  <textarea
-                    rows={5}
-                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent outline-none resize-none"
-                    placeholder="Your message..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full px-6 py-3 bg-white text-[#b8845c] font-semibold rounded-lg hover:bg-[#ebebeb] transition font-playfair uppercase"
-                >
-                  Send Message
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
 
           {/* Map Section */}
-          <div className="w-full rounded-lg overflow-hidden shadow-lg">
-            <a
-              href="https://www.google.com/maps/dir//1811+Douglas+Blvd,+Roseville,+CA+95661,+USA/@38.746664,-121.260677,15z"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full h-96 bg-gray-300 hover:bg-gray-400 transition items-center justify-center"
-              style={{
-                backgroundImage: `url('/images/map.webp')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            >
-              <div className="text-center bg-white bg-opacity-90 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-[#b8845c] mb-2 font-playfair">View on Google Maps</h3>
-                <p className="text-[#8b6344] mb-3 font-playfair">(916) Douglas Blvd, Roseville, CA 95661</p>
-                <div className="text-[#b8845c] font-semibold font-playfair">Click to open directions →</div>
+          <div className="w-full rounded-lg overflow-hidden shadow-lg bg-white">
+            <div className="p-4 sm:p-6 bg-white border-b border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div>
+                <h3 className="text-lg font-playfair font-bold text-gray-900">Our Showroom</h3>
+                <p className="text-sm text-gray-500 mt-1">1811 Douglas Blvd, Roseville, CA 95661</p>
               </div>
-            </a>
+              <a
+                href="https://www.google.com/maps/place/MyySpace+Furniture+%26+Mattress/@38.7465805,-121.2606694,17z/data=!4m8!3m7!1s0x678ab9b0c002b107:0xbff9cbf87975ed3c!8m2!3d38.7465805!4d-121.2606694!9m1!1b1!16s%2Fg%2F11yjlt_j7s"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#b8845c] hover:bg-[#a0725a] text-white text-xs uppercase tracking-widest font-semibold rounded-sm transition-colors"
+              >
+                Get Directions
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.8!2d-121.2606694!3d38.7465805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x678ab9b0c002b107%3A0xbff9cbf87975ed3c!2sMyySpace%20Furniture%20%26%20Mattress!5e0!3m2!1sen!2sus!4v1"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full"
+              title="MyySpace Furniture & Mattress Location"
+            />
           </div>
         </div>
       </main>
+
+      <GoogleReviews />
 
       <Footer />
     </>

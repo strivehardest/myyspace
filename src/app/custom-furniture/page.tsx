@@ -1,114 +1,83 @@
-import { Metadata } from 'next'
+"use client";
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import PageHeader from '@/components/PageHeader'
-import ProductGrid from '@/components/ProductGrid'
-
-export const metadata: Metadata = {
-  title: 'Custom Furniture Design | Bespoke Sofas & Sectionals - My Space Furniture',
-  description: 'Design custom furniture at My Space Furniture. Create custom sofas, sectionals, and loveseats tailored to your exact specifications and style.',
-  keywords: 'custom furniture, custom sofas, custom sectionals, bespoke furniture design',
-  openGraph: {
-    title: 'Custom Furniture - My Space Furniture',
-    description: 'Design your perfect piece tailored to your unique needs',
-    type: 'website',
-  },
-}
+import ImageSwiper from '@/components/ImageSwiper'
 
 export default function CustomFurniture() {
+  const images = [
+    '/products/custom-furniture/custom-bedroom-1.webp',
+    '/products/custom-furniture/custom (1).jpeg',
+    '/products/custom-furniture/custom (2).jpeg',
+    '/products/custom-furniture/custom (3).jpeg',
+    '/products/custom-furniture/custom (4).jpeg',
+    '/products/custom-furniture/custom (5).jpeg',
+    '/products/custom-furniture/custom (6).jpeg',
+    '/products/custom-furniture/custom (7).jpeg',
+    '/products/custom-furniture/custom (8).jpeg',
+    '/products/custom-furniture/custom (9).jpeg',
+    '/products/custom-furniture/custom (10).jpeg',
+    '/products/custom-furniture/custom (11).jpeg',
+    '/products/custom-furniture/custom (12).jpeg',
+    '/products/custom-furniture/custom (13).jpeg',
+    '/products/custom-furniture/custom (14).jpeg',
+    '/products/custom-furniture/custom (15).jpeg',
+    '/products/custom-furniture/custom (16).jpeg',
+    '/products/custom-furniture/custom (17).jpeg',
+    '/products/custom-furniture/custom (18).jpeg',
+    '/products/custom-furniture/custom (19).jpeg',
+    '/products/custom-furniture/custom (20).jpeg',
+  ];
+
   return (
     <>
       <Header />
-      <PageHeader 
-        title="Custom Furniture"
-        subtitle="Design your perfect piece tailored to your unique needs"
-        heroImage="/images/heroes/custom-furniture-hero.jpg"
-      />
-
-      <main className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                title: 'Custom Sectionals',
-                description: 'Design your perfect sectional with custom dimensions, fabrics, and configurations.',
-                href: '/custom-sectionals',
-              },
-              {
-                title: 'Custom Sofas',
-                description: 'Create a sofa that matches your exact specifications and style preferences.',
-                href: '/custom-sofas',
-              },
-              {
-                title: 'Custom Bedroom Sets',
-                description: 'Craft the perfect bedroom set for your unique space and comfort needs.',
-                href: '/custom-bedroom-sets',
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="p-8 rounded-lg border-2 border-light-gray hover:border-primary-blue hover:shadow-lg transition-all text-center"
-              >
-                <h3 className="text-2xl font-playfair font-bold text-primary-blue mb-3">{item.title}</h3>
-                <p className="text-gray-700 mb-6">{item.description}</p>
-                <a
-                  href={item.href}
-                  className="inline-block px-6 py-2 bg-primary-blue text-white rounded-lg hover:bg-secondary-blue transition"
-                >
-                  Explore →
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <section className="bg-light-gray rounded-lg p-12 text-center">
-            <h2 className="text-3xl font-playfair font-bold text-primary-blue mb-6">Design Your Custom Piece</h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
-              With our custom furniture options, you have complete control over every detail. Choose your dimensions, select from premium fabrics and leathers, pick your color, and configure your piece exactly how you want it.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
-              <div className="bg-white p-6 rounded-lg">
-                <div className="text-3xl font-bold text-primary-blue mb-2">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 21H7a2 2 0 01-2-2V5a2 2 0 012-2h2m0 0h2V3m-2 0h0m0 0v11m0 0v-2.5m0 2.5h5m-5 0V7" />
-                  </svg>
-                </div>
-                <h3 className="font-playfair font-bold text-primary-blue mb-2">Custom Dimensions</h3>
-                <p className="text-gray-700 text-sm">Get the exact size you need for your space.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg">
-                <div className="text-3xl font-bold text-primary-blue mb-2">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                  </svg>
-                </div>
-                <h3 className="font-playfair font-bold text-primary-blue mb-2">Premium Materials</h3>
-                <p className="text-gray-700 text-sm">Choose from quality fabrics and leathers.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg">
-                <div className="text-3xl font-bold text-primary-blue mb-2">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="font-playfair font-bold text-primary-blue mb-2">Perfect Configuration</h3>
-                <p className="text-gray-700 text-sm">Customize layout and features to suit you.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg">
-                <div className="text-3xl font-bold text-primary-blue mb-2">
-                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="1" />
-                    <circle cx="19" cy="5" r="1" />
-                    <circle cx="5" cy="19" r="1" />
-                    <path stroke="currentColor" fill="none" strokeLinecap="round" strokeWidth={1.5} d="M5 19l7-14m7 0l-7 14" />
-                  </svg>
-                </div>
-                <h3 className="font-playfair font-bold text-primary-blue mb-2">Expert Design Help</h3>
-                <p className="text-gray-700 text-sm">Our team guides you through the process.</p>
-              </div>
-            </div>
-          </section>
+      {/* Hero Section with Video */}
+      <section className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+        {/* Content */}
+        <div className="relative z-10 text-center text-white px-4 pt-32 md:pt-48">
+          <h1 className="text-4xl md:text-6xl font-playfair font-bold mb-4 uppercase">
+            Custom Furniture
+          </h1>
+          <p className="text-xl md:text-2xl mb-6 text-gray-100">
+            Design your perfect furniture tailored to your unique needs and style
+          </p>
         </div>
+      </section>
+
+      <main>
+        <ImageSwiper images={images} alt="Custom Furniture" />
+
+        <section className="py-16 md:py-24 bg-light-gray">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-playfair font-bold text-primary-blue mb-8">Custom Furniture Process</h2>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {[
+                { step: '1', title: 'Browse Styles', description: 'Explore our custom furniture inspirations and configurations.' },
+                { step: '2', title: 'Choose Specs', description: 'Select dimensions, materials, colors, and configuration options.' },
+                { step: '3', title: 'Get Quote', description: 'Receive a detailed quote for your custom furniture.' },
+                { step: '4', title: 'Place Order', description: 'Order with flexible financing and enjoy white-glove delivery.' },
+              ].map((item, index) => (
+                <div key={index} className="bg-white p-6 rounded-lg text-center">
+                  <div className="text-3xl font-bold text-primary-blue mb-3">{item.step}</div>
+                  <h3 className="font-playfair font-bold text-primary-blue mb-2">{item.title}</h3>
+                  <p className="text-gray-700 text-sm">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

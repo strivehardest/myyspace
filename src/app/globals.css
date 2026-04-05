@@ -28,6 +28,87 @@ a {
   transition: all 0.3s ease;
 }
 
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeSlideUp {
+  animation: fadeSlideUp 0.5s ease-out;
+}
+
+/* Google Translate widget styling */
+.google-translate-container {
+  display: inline-block;
+  line-height: 1;
+}
+
+.google-translate-container .skiptranslate {
+  display: block !important;
+}
+
+.google-translate-container .goog-te-gadget {
+  font-size: 0 !important;
+  color: transparent !important;
+  margin: 0 !important;
+}
+
+.google-translate-container .goog-te-gadget > span {
+  display: none !important;
+}
+
+.google-translate-container .goog-te-gadget .goog-te-gadget-simple {
+  display: none !important;
+}
+
+/* Hide the first (source language) select, keep only the target language one */
+.google-translate-container .goog-te-combo:first-of-type {
+  display: none !important;
+}
+
+.google-translate-container .goog-te-combo {
+  font-family: 'Mulish', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  padding: 6px 12px;
+  border: 1px solid rgba(184, 132, 92, 0.4);
+  border-radius: 4px;
+  background: #fff;
+  color: #b8845c;
+  cursor: pointer;
+  outline: none;
+}
+
+.google-translate-container .goog-te-combo:hover {
+  border-color: #b8845c;
+}
+
+/* Hide Google Translate top bar frame and powered-by branding */
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
+
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
 button {
   cursor: pointer;
   border: none;

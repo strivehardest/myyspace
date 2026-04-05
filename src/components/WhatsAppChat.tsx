@@ -1,40 +1,16 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
 export default function WhatsAppChat() {
-  const [isNearFooter, setIsNearFooter] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const footerElement = document.querySelector('footer')
-      if (!footerElement) return
-
-      const footerRect = footerElement.getBoundingClientRect()
-      const windowHeight = window.innerHeight
-      
-      // If footer is visible in viewport (less than windowHeight from bottom)
-      const isFooterVisible = footerRect.top < windowHeight
-
-      setIsNearFooter(isFooterVisible)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const buttonColor = isNearFooter ? 'text-[#b8845c]' : 'text-white'
-  const hoverColor = isNearFooter ? 'hover:text-[#a0725a]' : 'hover:text-[#ffffff]'
-
   return (
     <a
       href="https://wa.me/+19166611073?text=Hello%21%20I%20am%20interested%20in%20learning%20more%20about%20your%20furniture%20products."
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-6 right-6 z-[99] w-16 h-16 flex items-center justify-center transition-all duration-300 hover:scale-110 ${buttonColor} ${hoverColor}`}
+      aria-label="Chat on WhatsApp"
+      className="fixed bottom-6 right-4 md:right-6 z-[99] w-12 h-12 md:w-14 md:h-14 bg-[#b8845c] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:bg-[#a0725a]"
     >
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      <svg viewBox="0 0 32 32" className="w-7 h-7 fill-white">
+        <path d="M16.004 3.2C9.054 3.2 3.4 8.854 3.4 15.804c0 2.222.58 4.39 1.683 6.305L3.2 28.8l6.89-1.81a12.55 12.55 0 0 0 5.914 1.487h.005c6.95 0 12.591-5.654 12.591-12.604S22.954 3.2 16.004 3.2Zm0 23.067h-.004a10.42 10.42 0 0 1-5.312-1.454l-.381-.226-3.953 1.037 1.055-3.855-.249-.395a10.39 10.39 0 0 1-1.594-5.57c0-5.775 4.7-10.475 10.443-10.475 5.738 0 10.452 4.7 10.452 10.48 0 5.774-4.714 10.458-10.457 10.458Zm5.732-7.84c-.314-.157-1.86-.918-2.148-1.023-.288-.105-.498-.157-.707.158-.21.314-.813 1.023-.997 1.233-.184.21-.367.236-.681.079-.314-.158-1.327-.489-2.527-1.56-.934-.833-1.564-1.862-1.748-2.176-.184-.314-.02-.484.138-.64.142-.14.314-.367.472-.55.157-.184.21-.315.314-.524.105-.21.053-.394-.026-.55-.079-.158-.707-1.704-.97-2.333-.254-.613-.514-.53-.707-.54-.184-.008-.394-.01-.604-.01s-.55.079-.839.394c-.288.314-1.1 1.075-1.1 2.622 0 1.546 1.127 3.04 1.284 3.25.158.21 2.217 3.386 5.372 4.748.75.324 1.336.518 1.793.663.753.24 1.44.206 1.98.125.605-.09 1.861-.761 2.124-1.496.262-.735.262-1.365.184-1.496-.079-.131-.288-.21-.604-.367Z" />
       </svg>
     </a>
   )
