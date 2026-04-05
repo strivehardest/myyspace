@@ -1,3 +1,41 @@
+/* Google Translate - fix dropdown visibility */
+.goog-te-gadget {
+  display: block !important;
+  height: auto !important;
+  overflow: visible !important;
+  font-size: 0 !important; /* hides "Powered by" text */
+}
+
+.goog-te-gadget > span {
+  display: none !important; /* hides "Powered by Google" */
+}
+
+/* Style only the select box itself */
+select.goog-te-combo {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-width: 130px !important;
+  background-color: transparent !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  color: rgba(255,255,255,0.6) !important;
+  font-size: 11px !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+}
+
+/* Dropdown options must stay default (white bg, dark text) */
+select.goog-te-combo option {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+  font-size: 13px !important;
+}
+
+/* Hide Google banner at top of page */
+.goog-te-banner-frame { display: none !important; }
+.goog-logo-link { display: none !important; }
+body { top: 0 !important; }
 /* Force Google Translate select visible */
 .skiptranslate.goog-te-gadget {
   display: block !important;
