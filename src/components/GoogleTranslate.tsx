@@ -10,18 +10,9 @@ declare global {
   }
 }
 
-function initTranslate() {
-  if (window.google?.translate) {
-    new window.google.translate.TranslateElement(
-      { pageLanguage: 'en', autoDisplay: false },
-      'google_translate_element'
-    )
-  }
-}
-
 export default function GoogleTranslate() {
   useEffect(() => {
-    // Patch DOM to prevent React crashes
+    // Patch DOM once to prevent React crashes
     if (!window.__gtPatched) {
       const origRemoveChild = Node.prototype.removeChild
       Node.prototype.removeChild = function <T extends Node>(child: T): T {
@@ -36,22 +27,33 @@ export default function GoogleTranslate() {
       window.__gtPatched = true
     }
 
-    // If Google Translate already loaded (navigated from another page), init immediately
-    if (window.google?.translate) {
-      initTranslate()
-      return
+    const el = document.getElementById('google_translate_element')
+    if (el) el.innerHTML = '' // Clear old widget on every navigation
+
+    const doInit = () => {
+      if (window.google?.translate?.TranslateElement) {
+        new window.google.translate.TranslateElement(
+          { pageLanguage: 'en', autoDisplay: false },
+          'google_translate_element'
+        )
+      }
     }
 
-    // Otherwise load the script fresh
-    if (!document.getElementById('google-translate-script')) {
-      window.googleTranslateElementInit = initTranslate
-      const script = document.createElement('script')
-      script.id = 'google-translate-script'
-      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
-      script.async = true
-      document.head.appendChild(script)
+    if (window.google?.translate?.TranslateElement) {
+      // Script already loaded — just reinit into the fresh div
+      doInit()
+    } else {
+      // First load — fetch script
+      window.googleTranslateElementInit = doInit
+      if (!document.getElementById('google-translate-script')) {
+        const script = document.createElement('script')
+        script.id = 'google-translate-script'
+        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+        script.async = true
+        document.head.appendChild(script)
+      }
     }
-  }, [])
+  }, []) // Runs on every mount (every page navigation)
 
   return <div id="google_translate_element" />
 }
