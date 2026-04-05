@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
+import { useEffect, useRef } from 'react'
 
 declare global {
   interface Window {
@@ -12,7 +11,7 @@ declare global {
 }
 
 export default function GoogleTranslate() {
-  const pathname = usePathname()
+  const idRef = useRef(`gte_${Date.now()}`)
 
   useEffect(() => {
     if (!window.__gtPatched) {
@@ -29,37 +28,44 @@ export default function GoogleTranslate() {
       window.__gtPatched = true
     }
 
-    const el = document.getElementById('google_translate_element')
-    if (el) el.innerHTML = ''
+    const elId = idRef.current
 
-    const tryInit = () => {
+    const doInit = () => {
       if (window.google?.translate?.TranslateElement) {
         new window.google.translate.TranslateElement(
           { pageLanguage: 'en', autoDisplay: false },
-          'google_translate_element'
+          elId
         )
-        return true
       }
-      return false
     }
 
-    if (tryInit()) return
+    // Small delay to ensure DOM is settled after navigation
+    const timer = setTimeout(() => {
+      if (window.google?.translate?.TranslateElement) {
+        doInit()
+      } else if (!document.getElementById('google-translate-script')) {
+        window.googleTranslateElementInit = doInit
+        const script = document.createElement('script')
+        script.id = 'google-translate-script'
+        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+        script.async = true
+        document.head.appendChild(script)
+      } else {
+        let attempts = 0
+        const poll = setInterval(() => {
+          attempts++
+          if (window.google?.translate?.TranslateElement) {
+            doInit()
+            clearInterval(poll)
+          } else if (attempts > 20) {
+            clearInterval(poll)
+          }
+        }, 300)
+      }
+    }, 100)
 
-    if (!document.getElementById('google-translate-script')) {
-      window.googleTranslateElementInit = () => tryInit()
-      const script = document.createElement('script')
-      script.id = 'google-translate-script'
-      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
-      script.async = true
-      document.head.appendChild(script)
-    } else {
-      let attempts = 0
-      const poll = setInterval(() => {
-        attempts++
-        if (tryInit() || attempts > 20) clearInterval(poll)
-      }, 300)
-    }
-  }, [pathname]) // ← re-runs on every route change
+    return () => clearTimeout(timer)
+  }, [])
 
-  return <div id="google_translate_element" />
+  return <div id={idRef.current} />
 }
