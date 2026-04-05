@@ -1,3 +1,27 @@
+/* Google Translate widget */
+.google-translate-container .goog-te-gadget {
+  font-family: inherit !important;
+  color: transparent !important;
+}
+
+.google-translate-container .goog-te-gadget select {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.goog-te-banner-frame,
+.skiptranslate > span {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
