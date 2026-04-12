@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { blogs } from '@/data/blogs'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://myyspacefurniture.com'
@@ -131,5 +132,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  return routes
+  // Add blog posts to sitemap
+  const blogRoutes = blogs.map((blog) => ({
+    url: `${baseUrl}/blog/${blog.slug}`,
+    lastModified: today,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+    // Add keywords as a custom extension (not standard, but some sitemap parsers support it)
+    keywords: [
+      ...(blog.title ? blog.title.split(' ') : []),
+      ...(blog.category ? [blog.category] : []),
+      ...(blog.excerpt ? blog.excerpt.split(' ').slice(0, 8) : [])
+    ].join(', ')
+  }))
+
+  // If your sitemap generator supports extensions, you can add <xhtml:keywords> in XML. Otherwise, this is for reference.
+  return [...routes, ...blogRoutes]
 }

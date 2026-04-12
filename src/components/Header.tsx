@@ -50,6 +50,7 @@ export default function Header({ transparent = false }: HeaderProps) {
     { href: '/gallery', label: 'Gallery' },
     { href: '/about', label: 'About Us' },
     { href: '/contact', label: 'Contact' },
+    { href: '/blog', label: 'Blog' },
   ];
 
   return (
@@ -249,6 +250,9 @@ export default function Header({ transparent = false }: HeaderProps) {
                       </a>
                       <a href="tel:+19169940612" className="block text-white/50 hover:text-white text-sm sm:text-base font-light transition-colors duration-300">
                         (916) 994-0612
+                      </a>
+                      <a href="mailto:Myspacefurniture1@gmail.com" className="block text-white/50 hover:text-white text-sm sm:text-base font-light transition-colors duration-300">
+                        Myspacefurniture1@gmail.com
                       </a>
                     </div>
                   </div>

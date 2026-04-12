@@ -42,7 +42,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-xl font-playfair font-bold text-[#ebebeb] mb-3">Email</h3>
-                  <p className="text-[#ebebeb] text-lg">myyspacefurniture@gmail.com</p>
+                  <p className="text-[#ebebeb] text-lg">Myspacefurniture1@gmail.com</p>
                   <p className="text-[#ebebeb] text-base">We respond within 24 hours</p>
                 </div>
                 <div>

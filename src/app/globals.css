@@ -1,3 +1,41 @@
+/* Blog spacing improvements for readability */
+.prose p, .prose li, .prose ul, .prose ol, .prose blockquote {
+  margin-bottom: 1.35em !important;
+  line-height: 1.85 !important;
+}
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  margin-top: 2.2em !important;
+  margin-bottom: 1.1em !important;
+  line-height: 1.25 !important;
+}
+.prose ul, .prose ol {
+  padding-left: 2em !important;
+}
+.prose blockquote {
+  padding-left: 1.5em !important;
+  border-left: 4px solid #C9A96E !important;
+  color: #7a6a58 !important;
+  font-style: italic !important;
+}
+/* Blog readability improvements: headings and body */
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: #181818 !important;
+  font-family: 'Mulish', Arial, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+}
+.prose p, .prose li, .prose span, .prose strong, .prose em, .prose ul, .prose ol, .prose blockquote {
+  color: #232323 !important;
+  font-family: 'Mulish', Arial, sans-serif !important;
+  font-size: 1.13rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.01em;
+}
+/* Force all prose text to be fully opaque and dark for blog readability */
+.prose p, .prose li, .prose span, .prose strong, .prose em, .prose ul, .prose ol, .prose blockquote {
+  color: #1C1712 !important;
+  opacity: 1 !important;
+}
 /* Google Translate - fix dropdown visibility */
 .goog-te-gadget {
   display: block !important;

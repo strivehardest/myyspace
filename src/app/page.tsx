@@ -90,7 +90,7 @@ export default function Home() {
           <div className="w-16 h-[1px] bg-white/50 mx-auto mb-8" />
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-light mb-6 leading-tight tracking-wide">
-            My Space Furniture
+            MyySpace Furniture
           </h1>
 
           {/* Tagline */}
