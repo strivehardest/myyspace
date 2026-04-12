@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleReviews from '@/components/GoogleReviews';
@@ -17,58 +17,7 @@ const categoriesBeforeWhyChoose = [
   { href: '/leather-sectionals', title: 'Leather Sectionals', image: '/products/leather-sectional-9.webp' },
 ];
 
-function HeroVideoSequence() {
-  const [activeVideo, setActiveVideo] = useState(0);
-  const video1Ref = useRef<HTMLVideoElement>(null);
-  const video2Ref = useRef<HTMLVideoElement>(null);
 
-  // When video 1 ends, switch to video 2
-  const handleVideo1Ended = () => {
-    setActiveVideo(1);
-    video2Ref.current?.play().catch(() => {});
-  };
-
-  // When video 2 ends, switch to video 1
-  const handleVideo2Ended = () => {
-    setActiveVideo(0);
-    video1Ref.current?.play().catch(() => {});
-  };
-
-  // Start video 1 on mount and preload both
-  useEffect(() => {
-    video1Ref.current?.play().catch(() => {});
-  }, []);
-
-  return (
-    <>
-      <video
-        ref={video1Ref}
-        autoPlay
-        muted
-        playsInline
-        loop={false}
-        controls={false}
-        preload="metadata"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${activeVideo === 0 ? 'opacity-100 z-[1]' : 'opacity-0 z-0'}`}
-        onEnded={handleVideo1Ended}
-      >
-        <source src="/videos/hero4.mp4" type="video/mp4" />
-      </video>
-      <video
-        ref={video2Ref}
-        muted
-        playsInline
-        loop={false}
-        controls={false}
-        preload="metadata"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${activeVideo === 1 ? 'opacity-100 z-[1]' : 'opacity-0 z-0'}`}
-        onEnded={handleVideo2Ended}
-      >
-        <source src="/videos/hero5.mp4" type="video/mp4" />
-      </video>
-    </>
-  );
-}
 
 export default function Home() {
   return (
@@ -78,8 +27,18 @@ export default function Home() {
         {/* Transparent Header */}
         <Header transparent />
 
-        {/* Background Videos (sequential) */}
-        <HeroVideoSequence />
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          playsInline
+          loop
+          controls={false}
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover z-[1]"
+        >
+          <source src="/videos/hero2.mp4" type="video/mp4" />
+        </video>
 
         {/* Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 z-10" />
@@ -93,17 +52,9 @@ export default function Home() {
             MyySpace Furniture
           </h1>
 
-          {/* Tagline */}
-          <p className="text-[13px] md:text-[15px] uppercase tracking-[0.3em] text-white/70 mb-8 font-light">
-            Custom Crafted &bull; Premium Quality &bull; Roseville, CA
-          </p>
 
-          {/* Sale Banner */}
-          <div className="inline-block mb-8">
-            <div className="border border-white/30 px-8 py-3 text-[13px] md:text-[15px] tracking-[0.2em] uppercase font-light">
-              Save up to <span className="text-[#e5c7a0] font-normal">50%</span> on select pieces
-            </div>
-          </div>
+
+
 
           {/* Typewriter */}
           <p className="text-lg md:text-xl mb-10 text-white/80 font-light font-playfair">
