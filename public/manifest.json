@@ -1,6 +1,6 @@
 {
-  "name": "My Space Furniture",
-  "short_name": "My Space",
+  "name": "Myy Space Furniture",
+  "short_name": "Myy Space",
   "description": "Quality Furniture for Every Space - Premium mattresses, sectionals, sofas, bedroom sets, and custom furniture.",
   "start_url": "/",
   "display": "standalone",
@@ -26,14 +26,14 @@
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "My Space Furniture - Desktop"
+      "label": "Myy Space Furniture - Desktop"
     },
     {
       "src": "/icons/icon_512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "My Space Furniture - Mobile"
+      "label": "Myy Space Furniture - Mobile"
     }
   ]
 }
