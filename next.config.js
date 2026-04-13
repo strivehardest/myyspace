@@ -55,7 +55,10 @@ const nextConfig = {
               "frame-src 'self'" +
                 " https://translate.google.com" +
                 " https://translate.googleapis.com" +
-                " https://translate-pa.googleapis.com",
+                " https://translate-pa.googleapis.com" +
+                " https://www.google.com" +
+                " https://www.google.com/maps" +
+                " https://maps.google.com",
 
               // XHR/fetch calls go to translate-pa.googleapis.com (newer API)
               // as well as the classic translate.googleapis.com endpoint
