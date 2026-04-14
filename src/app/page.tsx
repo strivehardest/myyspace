@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleReviews from '@/components/GoogleReviews';
@@ -20,17 +20,19 @@ const categoriesBeforeWhyChoose = [
 
 
 export default function Home() {
+
+
   return (
     <>
       {/* Hero Section — Full-screen cinematic, Kempinski-inspired */}
+
       <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         {/* Transparent Header */}
         <Header transparent />
 
-        {/* Background Video */}
+        {/* Background Video with Sound (requires user interaction) */}
         <video
           autoPlay
-          muted
           playsInline
           loop
           controls={false}
@@ -41,7 +43,7 @@ export default function Home() {
         </video>
 
         {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 z-10 pointer-events-none" />
 
         {/* Content */}
         <div className="relative z-20 text-center text-white px-6 max-w-4xl mx-auto">
