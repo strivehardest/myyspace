@@ -5,7 +5,7 @@ import Typewriter from '@/components/Typewriter'
 
 export const metadata: Metadata = {
   title: 'About My Space Furniture | Quality Furniture Since 2016',
-  description: 'My Space Furniture provides premium mattresses and furniture to Roseville, Sacramento, Davis, Chico, and Yuba City, CA. We offer mattresses, bedroom sets, sectionals, sofas, dining room furniture, and custom pieces.',
+  description: 'My Space Furniture provides premium mattresses and furniture to Roseville. We offer mattresses, bedroom sets, sectionals, sofas, dining room furniture, and custom pieces.',
   keywords: 'furniture store, mattresses, bedroom sets, sectionals, dining room furniture, Roseville, Sacramento',
   openGraph: {
     title: 'About My Space Furniture',
