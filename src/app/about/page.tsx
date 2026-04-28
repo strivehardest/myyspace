@@ -54,7 +54,7 @@ export default function About() {
             <div className="bg-light-gray rounded-lg p-8">
               <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue uppercase">About My Space Furniture</h2>
               <p className="text-lg text-gray-700 mb-4">
-                My Space Furniture provides premium mattress and furniture sales to Roseville, Sacramento, Davis, Chico, and Yuba City, CA. Since 2016, we have been committed to offering quality furniture and exceptional customer service to our valued customers throughout Northern California.
+                My Space Furniture provides premium mattress and furniture sales to Roseville, CA. Since 2016, we have been committed to offering quality furniture and exceptional customer service to our valued customers throughout Northern California.
               </p>
               <p className="text-lg text-gray-700 mb-0">
                 We are your trusted partner for creating beautiful, comfortable spaces. Whether you're looking for the perfect mattress, a stunning bedroom set, elegant dining room furniture, or custom pieces, we have something for every style and budget.
