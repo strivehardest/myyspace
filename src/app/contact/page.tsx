@@ -85,7 +85,7 @@ export default function Contact() {
               </a>
             </div>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.8!2d-121.2606694!3d38.7465805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x678ab9b0c002b107%3A0xbff9cbf87975ed3c!2sMyySpace%20Furniture%20%26%20Mattress!5e0!3m2!1sen!2sus!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3111.74643679747!2d-121.2606694!3d38.7465805!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x678ab9b0c002b107%3A0xbff9cbf87975ed3c!2sMyySpace%20Furniture%20%26%20Mattress!5e0!3m2!1sen!2sgh!4v1776033134258!5m2!1sen!2sgh"
               width="100%"
               height="450"
               style={{ border: 0 }}

@@ -16,40 +16,24 @@ export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     setStatus('sending')
     setErrorMsg('')
 
-    try {
-      // Combine country code and phone for submission
-      const { countryCode, ...finalData } = {
-        ...formData,
-        phone: `${formData.countryCode} ${formData.phone}`,
-      }
+    const phone = formData.phone ? `${formData.countryCode} ${formData.phone}` : 'Not provided'
+    const subject = encodeURIComponent(
+      formData.subject ? `My Space Furniture: ${formData.subject}` : `New Contact from ${formData.name}`
+    )
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${phone}\n\nMessage:\n${formData.message}`
+    )
 
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-          ...finalData,
-        }),
-      })
+    const gmailUrl = `mailto:Myspacefurniture1@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = gmailUrl
 
-      const data = await res.json()
-
-      if (res.ok && data.success) {
-        setStatus('success')
-        setFormData({ name: '', email: '', countryCode: '+1', phone: '', subject: '', message: '' })
-      } else {
-        setStatus('error')
-        setErrorMsg(data.error || 'Failed to send message.')
-      }
-    } catch {
-      setStatus('error')
-      setErrorMsg('Something went wrong. Please try again.')
-    }
+    setStatus('success')
+    setFormData({ name: '', email: '', countryCode: '+1', phone: '', subject: '', message: '' })
   }
 
   if (status === 'success') {

@@ -5,7 +5,7 @@ import Typewriter from '@/components/Typewriter'
 
 export const metadata: Metadata = {
   title: 'About My Space Furniture | Quality Furniture Since 2016',
-  description: 'My Space Furniture provides premium mattresses and furniture to Roseville. We offer mattresses, bedroom sets, sectionals, sofas, dining room furniture, and custom pieces.',
+  description: 'My Space Furniture provides premium mattresses and furniture to Roseville, Sacramento, Davis, Chico, and Yuba City, CA. We offer mattresses, bedroom sets, sectionals, sofas, dining room furniture, and custom pieces.',
   keywords: 'furniture store, mattresses, bedroom sets, sectionals, dining room furniture, Roseville, Sacramento',
   openGraph: {
     title: 'About My Space Furniture',
@@ -54,7 +54,7 @@ export default function About() {
             <div className="bg-light-gray rounded-lg p-8">
               <h2 className="text-3xl font-playfair font-bold mb-6 text-primary-blue uppercase">About My Space Furniture</h2>
               <p className="text-lg text-gray-700 mb-4">
-                My Space Furniture provides premium mattress and furniture sales to Roseville, CA. Since 2016, we have been committed to offering quality furniture and exceptional customer service to our valued customers throughout Northern California.
+                My Space Furniture provides premium mattress and furniture sales to Roseville, Sacramento, Davis, Chico, and Yuba City, CA. Since 2016, we have been committed to offering quality furniture and exceptional customer service to our valued customers throughout Northern California.
               </p>
               <p className="text-lg text-gray-700 mb-0">
                 We are your trusted partner for creating beautiful, comfortable spaces. Whether you're looking for the perfect mattress, a stunning bedroom set, elegant dining room furniture, or custom pieces, we have something for every style and budget.
