@@ -40,16 +40,18 @@ export default function ContactForm() {
         }),
       })
       const result = await response.json()
+      console.log('Web3Forms result:', result)
       if (result.success) {
         setStatus('success')
         setFormData({ name: '', email: '', countryCode: '+1', phone: '', subject: '', message: '' })
       } else {
         setStatus('error')
-        setErrorMsg(result.message || 'Failed to send message. Please try again.')
+        setErrorMsg(result.message || `Error ${response.status}: Failed to send message.`)
       }
-    } catch {
+    } catch (err) {
+      console.error('Submit error:', err)
       setStatus('error')
-      setErrorMsg('Something went wrong. Please try again later.')
+      setErrorMsg('Network error. Please try again later.')
     }
   }
 
