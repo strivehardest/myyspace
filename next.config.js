@@ -44,6 +44,7 @@ const nextConfig = {
                 " https://translate-pa.googleapis.com" +
                 " https://www.gstatic.com" +
                 " https://ssl.gstatic.com" +
+                " https://fonts.gstatic.com" +
                 " https://lh3.googleusercontent.com" +
                 " https://images.unsplash.com",
 
@@ -63,6 +64,7 @@ const nextConfig = {
               // XHR/fetch calls go to translate-pa.googleapis.com (newer API)
               // as well as the classic translate.googleapis.com endpoint
               "connect-src 'self'" +
+                " https://api.web3forms.com" +
                 " https://translate.googleapis.com" +
                 " https://translate-pa.googleapis.com" +
                 " https://translate.google.com" +
