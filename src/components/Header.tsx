@@ -251,8 +251,8 @@ export default function Header({ transparent = false }: HeaderProps) {
                       <a href="tel:+19169940612" className="block text-white/50 hover:text-white text-sm sm:text-base font-light transition-colors duration-300">
                         (916) 994-0612
                       </a>
-                      <a href="mailto:Myspacefurniture1@gmail.com" className="block text-white/50 hover:text-white text-sm sm:text-base font-light transition-colors duration-300">
-                        Myspacefurniture1@gmail.com
+                      <a href="mailto:info@myyspacefurniture.com" className="block text-white/50 hover:text-white text-sm sm:text-base font-light transition-colors duration-300">
+                        info@myyspacefurniture.com
                       </a>
                     </div>
                   </div>

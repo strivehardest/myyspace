@@ -16,24 +16,41 @@ export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setStatus('sending')
     setErrorMsg('')
 
-    const phone = formData.phone ? `${formData.countryCode} ${formData.phone}` : 'Not provided'
-    const subject = encodeURIComponent(
-      formData.subject ? `My Space Furniture: ${formData.subject}` : `New Contact from ${formData.name}`
-    )
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${phone}\n\nMessage:\n${formData.message}`
-    )
+    const phone = formData.phone ? formData.phone : 'Not provided'
 
-    const gmailUrl = `mailto:Myspacefurniture1@gmail.com?subject=${subject}&body=${body}`
-    window.location.href = gmailUrl
-
-    setStatus('success')
-    setFormData({ name: '', email: '', countryCode: '+1', phone: '', subject: '', message: '' })
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '33a0d229-8224-4903-b708-cccc64f2ade7',
+          name: formData.name,
+          email: formData.email,
+          phone,
+          subject: formData.subject ? `My Space Furniture: ${formData.subject}` : `New Contact from ${formData.name}`,
+          message: formData.message,
+        }),
+      })
+      const result = await response.json()
+      if (result.success) {
+        setStatus('success')
+        setFormData({ name: '', email: '', countryCode: '+1', phone: '', subject: '', message: '' })
+      } else {
+        setStatus('error')
+        setErrorMsg(result.message || 'Failed to send message. Please try again.')
+      }
+    } catch {
+      setStatus('error')
+      setErrorMsg('Something went wrong. Please try again later.')
+    }
   }
 
   if (status === 'success') {
