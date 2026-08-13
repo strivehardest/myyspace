@@ -67,7 +67,7 @@ export default function NotFound() {
                 { href: '/dining-tables', label: 'Dining Furniture', description: 'Tables & chairs' },
                 { href: '/mattresses', label: 'Mattresses', description: 'Quality sleep solutions' },
                 { href: '/leather-sectionals', label: 'Leather Sectionals', description: 'Luxury sectionals' },
-                { href: '/fabric-sectionals', label: 'Fabric Sectionals', description: 'Cozy sectionals' },
+                { href: '/fabric-sectionals', label: 'Fabric Selections', description: 'Cozy fabric collections' },
                 { href: '/bunk-beds', label: 'Bunk Beds', description: 'Space-saving solutions' },
                 { href: '/vanities', label: 'Vanities', description: 'Elegant vanities' },
                 { href: '/custom-sectionals', label: 'Custom Sectionals', description: 'Design your own' },

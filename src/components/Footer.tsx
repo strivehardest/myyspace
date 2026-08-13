@@ -5,9 +5,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { GOOGLE_REVIEWS_SUMMARY } from '@/data/googleReviews'
 import GoogleTranslate from '@/components/GoogleTranslate'
+import { usePathname } from 'next/navigation'
 
-export default function Footer() {
+export default function Footer() {   
   const year = new Date().getFullYear();
+  const pathname = usePathname();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -54,6 +56,7 @@ export default function Footer() {
                 { label: 'Financing', href: '/financing' },
                 { label: 'FAQs', href: '/faq' },
                 { label: 'Contact Us', href: '/contact' },
+                { label: 'Blog', href: '/blog' },
               ].map(({ label, href }) => (
                 <li key={href}>
                   <Link
@@ -79,7 +82,7 @@ export default function Footer() {
                 { label: 'Dining Tables', href: '/dining-tables' },
                 { label: 'Sofas & Loveseats', href: '/loveseats' },
                 { label: 'Leather Sectionals', href: '/leather-sectionals' },
-                { label: 'Fabric Sectionals', href: '/fabric-sectionals' },
+                { label: 'Fabric Selections', href: '/fabric-sectionals' },
                 { label: 'Bunk Beds', href: '/bunk-beds' },
                 { label: 'Vanities', href: '/vanities' },
                 { label: 'Custom Furniture', href: '/custom-furniture' },
@@ -126,13 +129,13 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:myyspacefurniture@gmail.com"
+                  href="mailto:info@myyspacefurniture.com"
                   className="flex items-start gap-3 text-[18px] font-playfair text-white/80 hover:text-[#e5c7a0] tracking-wide transition-colors duration-300"
                 >
                   <svg className="w-3.5 h-3.5 mt-0.5 text-[#b8845c] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
-                  myyspacefurniture@gmail.com
+                  info@myyspacefurniture.com
                 </a>
               </li>
               <li>
@@ -242,7 +245,7 @@ export default function Footer() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
               </svg>
-              <GoogleTranslate />
+              <GoogleTranslate key={pathname} />
             </div>
             {/* Back to top */}
             <button

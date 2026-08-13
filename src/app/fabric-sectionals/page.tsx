@@ -11,12 +11,12 @@ export default function FabricSectionals() {
     <>
       <Header />
       <PageHeader 
-        title="Fabric Sectionals"
-        subtitle="Premium fabric sectionals for comfortable living spaces"
+        title="Fabric Selections"
+        subtitle="Premium fabric selections for comfortable living spaces"
         heroImage="/images/heroes/fabric-sectionals-hero.webp"
       />
       <main>
-        <ImageSwiper images={images} alt="Fabric Sectional" />
+        <ImageSwiper images={images} alt="Fabric Selections" />
       </main>
       <Footer />
     </>
