@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 // Get your free access key at https://app.web3forms.com/
-// Enter: myyspacefurniture@gmail.com → verify email → copy access key
+// Enter: info@myyspacefurniture.com → verify email → copy access key
 const WEB3FORMS_ACCESS_KEY = process.env.WEB3FORMS_ACCESS_KEY || 'YOUR_ACCESS_KEY_HERE'
 
 export async function POST(req: NextRequest) {

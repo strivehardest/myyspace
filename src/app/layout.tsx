@@ -58,6 +58,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
         <meta name="theme-color" content="#b8845c" />
+        {/* Google Translate scripts removed as requested */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="My Space Furniture" />
@@ -82,7 +83,7 @@ export default function RootLayout({
         />
         {/* Google Analytics now loaded conditionally in body via component */}
       </head>
-      <body className="bg-[#b8845c] text-[#ebebeb] font-playfair">
+      <body className="bg-white text-[#ebebeb] font-playfair">
         <GoogleAnalytics />
         <PWAInstallPrompt />
         {children}

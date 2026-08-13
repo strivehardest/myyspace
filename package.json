@@ -10,6 +10,7 @@
     "vercel-build": "npm install --legacy-peer-deps && next build"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "classnames": "^2.5.1",
     "framer-motion": "^12.23.25",
     "leaflet": "^1.9.4",

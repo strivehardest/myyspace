@@ -5,7 +5,10 @@ import PageHeader from '@/components/PageHeader'
 import ImageSwiper from '@/components/ImageSwiper'
 
 export default function BunkBeds() {
-  const images = Array.from({ length: 33 }, (_, i) => `/products/bunk-bed-${i + 1}.webp`);
+  const images = [
+    ...Array.from({ length: 33 }, (_, i) => `/products/bunk-bed-${i + 1}.webp`),
+    "/products/bunk-bed.jpeg"
+  ];
 
   return (
     <>

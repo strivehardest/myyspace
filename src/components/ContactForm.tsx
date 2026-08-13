@@ -21,32 +21,37 @@ export default function ContactForm() {
     setStatus('sending')
     setErrorMsg('')
 
+    const phone = formData.phone ? formData.phone : 'Not provided'
+
     try {
-
-      // Combine country code and phone for submission
-      const { countryCode, ...submissionData } = {
-        ...formData,
-        phone: `${formData.countryCode} ${formData.phone}`,
-      }
-
-      const res = await fetch('/api/contact', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(submissionData),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '33a0d229-8224-4903-b708-cccc64f2ade7',
+          name: formData.name,
+          email: formData.email,
+          phone,
+          subject: formData.subject ? `My Space Furniture: ${formData.subject}` : `New Contact from ${formData.name}`,
+          message: formData.message,
+        }),
       })
-
-      const data = await res.json()
-
-      if (res.ok && data.success) {
+      const result = await response.json()
+      console.log('Web3Forms result:', result)
+      if (result.success) {
         setStatus('success')
         setFormData({ name: '', email: '', countryCode: '+1', phone: '', subject: '', message: '' })
       } else {
         setStatus('error')
-        setErrorMsg(data.error || 'Failed to send message.')
+        setErrorMsg(result.message || `Error ${response.status}: Failed to send message.`)
       }
-    } catch {
+    } catch (err) {
+      console.error('Submit error:', err)
       setStatus('error')
-      setErrorMsg('Something went wrong. Please try again.')
+      setErrorMsg('Network error. Please try again later.')
     }
   }
 
